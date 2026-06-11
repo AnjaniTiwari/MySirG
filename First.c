@@ -778,9 +778,11 @@ int main() {
 // //4.
 // int main() {
 //     system("clear");
-//     for(int i = 1; i<=20; ++i)       
-//         if(i&1)
-//             printf("%d ", i);
+//     // for(int i = 1; i<=20; ++i)       
+//     //     if(i&1)
+//     //         printf("%d ", i);
+//     for(int i = 1; i <= 19; i+=2)
+//         printf("%d ", i);
 //     printf("\n");
 // 	return 0;
 // }
@@ -788,29 +790,40 @@ int main() {
 // //5.
 // int main() {
 //     system("clear");
-//     for(int i = 1; i<=20; ++i)       
-//         if(i&1)
-//             printf("%d ", 22-i);
+//     // for(int i = 1; i<=20; ++i)       
+//     //     if(i&1)
+//     //         printf("%d ", 22-i);
+//     // for(int i = 1; i<=20; i+=2)       
+//     //     printf("%d ", 20-i);
+//     for(int i = 1; i<=10; ++i)       
+//         // printf("%d ", (20-i)-(i-1));
+//         printf("%d ", 21-2*i);
 //     printf("\n");
 // 	return 0;
 // }
 
-// //6.
-// int main() {
-//     system("clear");
-//     for(int i = 1; i<=20; ++i)       
-//         if((i&1) == 0)
-//             printf("%d ", i);
-//     printf("\n");
-// 	return 0;
-// }
+//6.
+int main() {
+    system("clear");
+    // for(int i = 1; i<=20; ++i)       
+    //     if((i&1) == 0)
+    //         printf("%d ", i);
+    // for(int i = 2; i<=20; i+=2)       
+    //     printf("%d ", i);
+    for(int i = 1; i<=10; ++i)       
+        printf("%d ", 2*i);
+    printf("\n");
+	return 0;
+}
 
 // //7.
 // int main() {
 //     system("clear");
-//     for(int i = 1; i<=20; ++i)       
-//         if((i&1) == 0)
-//             printf("%d ", 22-i);
+//     // for(int i = 1; i<=20; ++i)       
+//     //     if((i&1) == 0)
+//     //         printf("%d ", 22-i);
+//     for(int i = 2; i<=20; i+=2)       
+//         printf("%d ", 22-i);
 //     printf("\n");
 // 	return 0;
 // }
@@ -833,11 +846,11 @@ int main() {
 // 	return 0;
 // }
 
-//10.
-int main() {
-    system("clear");
-    for(int i = 1; i<=10; ++i)       
-        printf("%d ", 5*i);
-    printf("\n");
-	return 0;
-}
+// //10.
+// int main() {
+//     system("clear");
+//     for(int i = 1; i<=10; ++i)       
+//         printf("%d ", 5*i);
+//     printf("\n");
+// 	return 0;
+// }
