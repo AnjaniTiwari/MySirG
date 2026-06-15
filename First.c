@@ -802,19 +802,19 @@ int main() {
 // 	return 0;
 // }
 
-//6.
-int main() {
-    system("clear");
-    // for(int i = 1; i<=20; ++i)       
-    //     if((i&1) == 0)
-    //         printf("%d ", i);
-    // for(int i = 2; i<=20; i+=2)       
-    //     printf("%d ", i);
-    for(int i = 1; i<=10; ++i)       
-        printf("%d ", 2*i);
-    printf("\n");
-	return 0;
-}
+// //6.
+// int main() {
+//     system("clear");
+//     // for(int i = 1; i<=20; ++i)       
+//     //     if((i&1) == 0)
+//     //         printf("%d ", i);
+//     // for(int i = 2; i<=20; i+=2)       
+//     //     printf("%d ", i);
+//     for(int i = 1; i<=10; ++i)       
+//         printf("%d ", 2*i);
+//     printf("\n");
+// 	return 0;
+// }
 
 // //7.
 // int main() {
@@ -822,9 +822,11 @@ int main() {
 //     // for(int i = 1; i<=20; ++i)       
 //     //     if((i&1) == 0)
 //     //         printf("%d ", 22-i);
-//     for(int i = 2; i<=20; i+=2)       
-//         printf("%d ", 22-i);
-//     printf("\n");
+//     // for(int i = 2; i<=20; i+=2)       
+//     //     printf("%d ", 22-i);
+//     for(int i = 1; i<=10; ++i)       
+//         printf("%d ", 22-(2*i));
+//         printf("\n");
 // 	return 0;
 // }
 
@@ -850,7 +852,129 @@ int main() {
 // int main() {
 //     system("clear");
 //     for(int i = 1; i<=10; ++i)       
-//         printf("%d ", 5*i);
+//         printf("5 * %d = %d", i, 5*i);
 //     printf("\n");
 // 	return 0;
 // }
+
+// Assignment - 8 More on iterative Control Statements
+// 1.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     while(n) {
+//         printf("MySirG\n");
+//         n--;
+//     }
+//     return 0;
+// }
+
+// //2.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i)
+//         printf("%d ", i);
+//     return 0;
+// }
+
+// //3.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i)
+//         printf("%d ", n+1-i);
+//     printf("\n");
+//     return 0;
+// }
+
+
+// //4.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i)
+//         printf("%d ", 2*i-1);
+//     printf("\n");
+//     return 0;
+// }
+
+// //5.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i)
+//         printf("%d ", 2*(n-i)+1);
+//     printf("\n");
+//     return 0;
+// }
+
+// //6.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i)
+//         printf("%d ", 2*i);
+//     printf("\n");
+//     return 0;
+// }
+
+// //7.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i)
+//         printf("%d ", 2*(n-i)+2);
+//     printf("\n");
+//     return 0;
+// }
+
+// //8.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i)
+//         printf("%d ", i*i);
+//     printf("\n");
+//     return 0;
+// }
+
+// //9.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i)
+//         printf("%d ", i*i*i);
+//     printf("\n");
+//     return 0;
+// }
+
+//10.
+int main() {
+    system("clear");
+    int n;
+    printf("Enter a num: ");
+    scanf("%d", &n);
+    for(int i = 1; i <= 10; ++i)
+        printf("%d * %d  = %d\n",n, i, n*i);
+    printf("\n");
+    return 0;
+}
