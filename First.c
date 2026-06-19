@@ -967,14 +967,133 @@ int main() {
 //     return 0;
 // }
 
-//10.
+// //10.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= 10; ++i)
+//         printf("%d * %d  = %d\n",n, i, n*i);
+//     printf("\n");
+//     return 0;
+// }
+
+//Assignment - 9 Use any loop
+
+// //.1
+// int main() {
+//     system("clear");
+//     int n, sum = 0;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i) {
+//         printf("%d ", i);
+//         sum+=i;
+//         }
+//     printf("sum %d \n",sum);
+//     printf("\n");
+//     return 0;
+// }
+
+// //.2
+// int main() {
+//     system("clear");
+//     int n, sum = 0;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i) {
+//         printf("%d ", i*2);
+//         sum+=(2*i);
+//     }
+//     printf("sum %d \n",sum);
+//     printf("\n");
+//     return 0;
+// }
+
+// //.3
+// int main() {
+//     system("clear");
+//     int n, sum = 0;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i) {
+//         printf("%d ", 2*i-1);
+//         sum+=(2*i-1);
+//     }
+//     printf("sum %d \n",sum);
+//     printf("\n");
+//     return 0;
+// }
+
+// //.4
+// int main() {
+//     system("clear");
+//     int n, sum = 0;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i) {
+//         printf("%d ", i*i);
+//         sum+=(i*i);
+//     }
+//     printf("sum %d \n",sum);
+//     printf("\n");
+//     return 0;
+// }
+
+// //.5
+// int main() {
+//     system("clear");
+//     int n, sum = 0;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i) {
+//         printf("%d ", i*i*i);
+//         sum+=(i*i*i);
+//     }
+//     printf("sum %d \n",sum);
+//     printf("\n");
+//     return 0;
+// }
+
+// //6.
+// int main() {
+//     system("clear");
+//     int n, sum = 1;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(int i = 1; i <= n; ++i) {
+//         printf("%d ", n-i+1);
+//         sum*=(n-i+1);
+//     }
+//     printf("sum %d \n",sum);
+//     printf("\n");
+//     return 0;
+// }
+
+// //7.
+// int main() {
+//     system("clear");
+//     int n, digit_count = 0;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     while(n) {
+//         digit_count++;
+//         n/=10;
+//     }
+//     printf("digit count %d \n",digit_count);
+//     printf("\n");
+//     return 0;
+// }
+
+//8.
 int main() {
     system("clear");
-    int n;
+    int n, digit_count = 0;
     printf("Enter a num: ");
     scanf("%d", &n);
-    for(int i = 1; i <= 10; ++i)
-        printf("%d * %d  = %d\n",n, i, n*i);
+    if(n%2)
+    printf("digit count %d \n",digit_count);
     printf("\n");
     return 0;
 }
