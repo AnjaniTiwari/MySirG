@@ -1086,14 +1086,43 @@ int main() {
 //     return 0;
 // }
 
-//8.
+// //8.
+// int main() {
+//     system("clear");
+//     int n, i;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(i = 2; i <= n/2; ++i)
+//         if(n%i == 0) {
+//             printf("%d is not a prime no.\n", n);
+//             break;
+//         }
+//     if(n == 1)
+//         printf("%d is not a prime no.\n", n);
+//     else if(i == (n/2)+1)
+//         printf("%d is a prime no.\n", n);
+//     printf("\n");
+//     return 0;
+// }
+
+//9.
 int main() {
     system("clear");
-    int n, digit_count = 0;
-    printf("Enter a num: ");
-    scanf("%d", &n);
-    if(n%2)
-    printf("digit count %d \n",digit_count);
+    int n1, n2, i = 2, lcm = 1;
+    printf("Enter two num: ");
+    scanf("%d %d", &n1, &n2);
+    while(n1 != 1 || n2 != 1) {
+        if(n1%i == 0 || n2%i == 0) {
+            lcm*=i;
+            if(n1%i == 0)
+                n1/=i;
+            if(n2%i == 0)
+                n2/=i;
+        }
+        else
+            ++i;
+    }
+    printf("LCM %d \n", lcm);
     printf("\n");
     return 0;
 }
