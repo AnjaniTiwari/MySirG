@@ -1105,24 +1105,59 @@ int main() {
 //     return 0;
 // }
 
-//9.
+// //9.
+// int main() {
+//     system("clear");
+//     int n1, n2, i = 2, lcm = 1;
+//     int flag = 0;
+//     printf("Enter two num: ");
+//     scanf("%d %d", &n1, &n2);
+//     // while(n1 != 1 || n2 != 1) {
+//     //     if(n1%i == 0 || n2%i == 0) {
+//     //         lcm*=i;
+//     //         if(n1%i == 0)
+//     //             n1/=i;
+//     //         if(n2%i == 0)
+//     //             n2/=i;
+//     //     }
+//     //     else
+//     //         ++i;
+//     // }
+
+//     while(n1 != 1 || n2 != 1) {  
+//         if(n1%i == 0) {
+//             flag = 1;
+//             n1/=i;
+//         }
+        
+//         if(n2%i == 0) {
+//             flag = 1;
+//             n2/=i;
+//         }
+        
+//         if(flag) {
+//             lcm*=i;
+//             flag = 0;
+//         }
+//         else
+//             ++i;
+//     }
+//     printf("LCM %d \n", lcm);
+//     printf("\n");
+//     return 0;
+// }
+
+//10.
 int main() {
     system("clear");
-    int n1, n2, i = 2, lcm = 1;
-    printf("Enter two num: ");
-    scanf("%d %d", &n1, &n2);
-    while(n1 != 1 || n2 != 1) {
-        if(n1%i == 0 || n2%i == 0) {
-            lcm*=i;
-            if(n1%i == 0)
-                n1/=i;
-            if(n2%i == 0)
-                n2/=i;
-        }
-        else
-            ++i;
+    int n, n2 = 0;
+    printf("Enter a num: ");
+    scanf("%d", &n);
+    while(n) {
+        n2 =  n2*10 + n%10;
+        n/=10;
     }
-    printf("LCM %d \n", lcm);
+    printf("Reverse %d\n", n2);
     printf("\n");
     return 0;
 }
