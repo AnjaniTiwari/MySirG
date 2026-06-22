@@ -1147,17 +1147,76 @@ int main() {
 //     return 0;
 // }
 
-//10.
+// //10.
+// int main() {
+//     system("clear");
+//     int n, n2 = 0;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     while(n) {
+//         n2 =  n2*10 + n%10;
+//         n/=10;
+//     }
+//     printf("Reverse %d\n", n2);
+//     printf("\n");
+//     return 0;
+// }
+
+//switch case 
+
+// //1.
+// int main() {
+//     system("clear");
+//     int n;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     switch(n) {
+//         default :
+//             printf("Default\n");
+//             break;
+//         case 1 ... 4:
+//             printf("4");
+//             break;
+//         case 10 ... 15:
+//             printf("2");
+
+//     }
+//     printf("\nReverse\n");
+//     printf("\n");
+//     return 0;
+// }
+
+//Assignment 10
+
+// //1.
+// int main() {
+//     system("clear");
+//     int n, sum, cur = 1, last = 1, swap, i;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(i = 3; i <= n; ++i) {
+//         swap = cur;
+//         cur = cur+last;
+//         last = swap;
+//     }
+//     printf("%dth term is %d", n, cur);
+//     printf("\n");
+//     return 0;
+// }
+
+//2.
 int main() {
     system("clear");
-    int n, n2 = 0;
+    int n, sum, cur = 1, last = 1, swap, i;
     printf("Enter a num: ");
     scanf("%d", &n);
-    while(n) {
-        n2 =  n2*10 + n%10;
-        n/=10;
+    for(i = 3; i <= n; ++i) {
+        swap = cur;
+        cur = cur+last;
+        last = swap;
     }
-    printf("Reverse %d\n", n2);
+    printf("%dth term is %d", n, cur);
     printf("\n");
     return 0;
 }
+
