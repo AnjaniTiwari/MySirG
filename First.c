@@ -42,7 +42,7 @@ int main() {
     printf("\\n\n");
     printf("\\r\n");
     printf("\"Teacher\'s Day\"\n");
-    
+
     printf("Enter two numbers: ");
     scanf("%d%d", &n1, &n2);
     printf("Sum of %d and %d is %d\n", n1, n2, n1+n2);
@@ -75,24 +75,24 @@ int main() {
     int n1, n2, n3;
     printf("Enter three numbers:");
     scanf("%d%d%d", &n1, &n2, &n3);
-    float average = (n1+n2+n3)/3.0; 
+    float average = (n1+n2+n3)/3.0;
     printf("Average is %f\n", average);
 
     printf("Enter cricle radius:");
     scanf("%d", &n1);
     float circumference =  2*PI*n1;
-    printf("Circumference : %f\n", circumference);   
+    printf("Circumference : %f\n", circumference);
 
     int principal_amount, rate_of_interest, time;
     printf("Enter principle amount:");
     scanf("%d", &principal_amount);
-    
+
     printf("\nEnter rate of interest (%% per year):");
     scanf("%d", &rate_of_interest);
 
     printf("\nEnter time (year):");
     scanf("%d", &time);
-    
+
     float simple_interest = (principal_amount*rate_of_interest*time)/100.0;
     printf("simple interest: %f\n", simple_interest);
 
@@ -105,15 +105,15 @@ int main() {
     printf("Area of cuboid %d\n", area);
 
     int selling_price, cost_price, sell_bananas;
-    float cost_of_banana, selling_price_of_banana;  
+    float cost_of_banana, selling_price_of_banana;
     printf("Enter cost price of banana per dozer: ");
     scanf("%d", &cost_price);
     printf("\nEnter how many bananas you sell and selling price: ");
     scanf("%d%d", &sell_bananas, &selling_price);
     cost_of_banana = cost_price/12.0f;
     selling_price_of_banana = selling_price/sell_bananas;
-    
-    if(selling_price_of_banana > cost_of_banana) 
+
+    if(selling_price_of_banana > cost_of_banana)
         printf("profit %f", (selling_price_of_banana-cost_of_banana)*sell_bananas);
     else
         printf("loss %f", (cost_of_banana-selling_price_of_banana)*sell_bananas);
@@ -167,77 +167,77 @@ int main() {
 }
 */
 
-//Assignment 3 Operators 
+// Assignment 3 Operators
 
 // #include <stdio.h>
 // int main() {
 //     system("clear");
-    
-    // 1.
-    // printf("size of a charector constant %d\n", sizeof('A'));
-    
-    // 2.
-    // printf("size of a real constant %d\n", sizeof(3.14));
 
-    // 3.
-    // char ch;
-    // ch = 'A';
-    // printf("charector constant %c\n", ch);
-    // ch++;
-    // printf("charector constant %c\n", ch);
+// 1.
+// printf("size of a charector constant %d\n", sizeof('A'));
 
-    // 4.
-    // int num;
-    // printf("Enter any number: ");
-    // scanf("%d", &num);
-    // printf("Unit digit: %d\n", num%10);
+// 2.
+// printf("size of a real constant %d\n", sizeof(3.14));
 
-    // 5.
-    // int num;
-    // printf("Enter any number: ");
-    // scanf("%d", &num);
-    // // num-=num%10;
-    // printf("Without Unit digit: %d\n", num/10);
+// 3.
+// char ch;
+// ch = 'A';
+// printf("charector constant %c\n", ch);
+// ch++;
+// printf("charector constant %c\n", ch);
 
-    // 6.
-    // int x = 10, y = 11;
+// 4.
+// int num;
+// printf("Enter any number: ");
+// scanf("%d", &num);
+// printf("Unit digit: %d\n", num%10);
 
-    // printf("x = %d y = %d\n", x, y);
-    // x+=y;
-    // y=x-y;
-    // x-=y; 
-    // printf("x = %d y = %d\n", x, y);
+// 5.
+// int num;
+// printf("Enter any number: ");
+// scanf("%d", &num);
+// // num-=num%10;
+// printf("Without Unit digit: %d\n", num/10);
 
-    // 7.
-    // int x = 12, y = 6;
+// 6.
+// int x = 10, y = 11;
 
-    // printf("x = %d y = %d\n", x, y);
-    // // x+=y;
-    // // y-=x;
-    // // x+=y;
-    // // y=~y;
-    // // y++;
-    // x = x*y;
-    // y = x/y;
-    // x = x/y;
+// printf("x = %d y = %d\n", x, y);
+// x+=y;
+// y=x-y;
+// x-=y;
+// printf("x = %d y = %d\n", x, y);
 
-    // printf("x = %d y = %d\n", x, y);
+// 7.
+// int x = 12, y = 6;
 
-    // 8.
-    // int x = 9, y = 78;
+// printf("x = %d y = %d\n", x, y);
+// // x+=y;
+// // y-=x;
+// // x+=y;
+// // y=~y;
+// // y++;
+// x = x*y;
+// y = x/y;
+// x = x/y;
 
-    // printf("x = %d y = %d\n", x, y);
+// printf("x = %d y = %d\n", x, y);
 
-    // x = x^y;
-    // y = x^y;
-    // x = x^y;
-    
-    // printf("x = %d y = %d\n", x, y);
+// 8.
+// int x = 9, y = 78;
 
-    // printf("\n");
-    // return 0;
+// printf("x = %d y = %d\n", x, y);
 
-    // 9.
+// x = x^y;
+// y = x^y;
+// x = x^y;
+
+// printf("x = %d y = %d\n", x, y);
+
+// printf("\n");
+// return 0;
+
+// 9.
 //     int x = 1, y = 2;
 
 //     printf("x = %d y = %d\n", x, y);
@@ -249,13 +249,12 @@ int main() {
 //     return 0;
 // }
 
-
-//Assignment 4 More operators
+// Assignment 4 More operators
 /*
 #include <stdio.h>
 int main() {
     system("clear");
-    
+
     // 1.
     // int x = 2315101;
     // int sum = 0;
@@ -273,7 +272,7 @@ int main() {
     // char ch = 'A';
     // float f = 3.14;
     // double du = 3.4156778;
-    
+
     // printf("size of int : %d\n", sizeof(i));
     // printf("size of int : %d\n", sizeof(ch));
     // printf("size of int : %d\n", sizeof(f));
@@ -289,10 +288,10 @@ int main() {
     // int x,y;
     // printf("Enter a number: ");
     // scanf("%d", &x);
-    
+
     // printf("Enter a digit: ");
     // scanf("%d", &y);
-    
+
     // x*=10;
     // x+=y;
     // x = x*10+y;
@@ -310,10 +309,10 @@ int main() {
     // int num;
     // printf("Enter a number: ");
     // scanf("%d", &num);
-    
+
     // int remender = (num%10)*100;
     // num = remender + (num/10);
-    
+
     // printf("%d", num);
 
     // 7
@@ -336,12 +335,12 @@ int main() {
 }
 */
 
-//Assignment 5
+// Assignment 5
 
 #include <stdio.h>
 
-//1.
-//int main() {
+// 1.
+// int main() {
 //	int num;
 //	printf("Enter a number: ");
 //	scanf("%d", &num);
@@ -351,11 +350,10 @@ int main() {
 //		printf("Non-Positive.");
 //	getch();
 //	return 0;
-//}
-
+// }
 
 ////2.
-//int main() {
+// int main() {
 //	int num;
 //	printf("Enter a number: ");
 //	scanf("%d", &num);
@@ -365,10 +363,10 @@ int main() {
 //		printf("%d is not divisible by 5.", num);
 //	getch();
 //	return 0;
-//}
+// }
 
 ////3.
-//int main() {
+// int main() {
 //	int num;
 //	printf("Enter a number: ");
 //	scanf("%d", &num);
@@ -378,7 +376,7 @@ int main() {
 //		printf("%d is odd no.", num);
 //	getch();
 //	return 0;
-//}
+// }
 
 // //4.
 // int main() {
@@ -427,7 +425,7 @@ int main() {
 //         printf("grater no %d", num1);
 //     else if(num1 < num2)
 //         printf("grater no %d", num2);
-//     else 
+//     else
 //         printf("No %d", num1);
 //     printf("\n");
 // 	return 0;
@@ -443,7 +441,7 @@ int main() {
 //         printf("grater no %d", num1);
 //     else if(num1 < num2)
 //         printf("grater no %d", num2);
-//     else 
+//     else
 //         printf("No %d", num1);
 //     printf("\n");
 // 	return 0;
@@ -455,7 +453,7 @@ int main() {
 //     int a, b, c;
 // 	printf("Enter two numbers: ");
 // 	scanf("%d%d%d", &a, &b, &c);
-    
+
 // 	int d = (b*b)-(4*a*c);
 
 //     if(d > 0)
@@ -474,17 +472,17 @@ int main() {
 //     int year;
 // 	printf("Enter any year: ");
 // 	scanf("%d", &year);
-    
+
 //     if(year%100) {
 //         if(year%4)
-//             printf("%d is non-leap year.", year);    
+//             printf("%d is non-leap year.", year);
 //         else
 //             printf("%d is the leap year.", year);
 //     }
 //     else {
 //         if(year%400)
 //             printf("%d is the non-leap year.", year);
-//         else    
+//         else
 //             printf("%d is the leap year.", year);
 //     }
 //     printf("\n");
@@ -497,7 +495,7 @@ int main() {
 //     int n1, n2, n3;
 // 	printf("Enter three no: ");
 // 	scanf("%d%d%d", &n1, &n2, &n3);
-    
+
 //     if(n1 >= n2 && n1 >= n3)
 //         printf("%d is grater.", n1);
 //     else if(n2 >= n3)
@@ -535,7 +533,7 @@ int main() {
 //     int i = 1, n;
 //     printf("Enter any natural no: ");
 //     scanf("%d", &n);
-//     if(n > 0) 
+//     if(n > 0)
 //         while(i <= n)
 //             printf("%d ", i++);
 //     else
@@ -544,21 +542,21 @@ int main() {
 // 	return 0;
 // }
 
-//Assignment 6 : More on Decision Control Statements
-// //1.
-// int main() {
-//     system("clear");
-//     int no, digit_count = 0;
-//     printf("Enter a no: ");
-//     scanf("%d", &no);
-//     while(no) {
-//         no/=10;
-//         digit_count++;
-//     }
-//     printf("digit count %d", digit_count);
-//     printf("\n");
-// 	return 0;
-// }
+// Assignment 6 : More on Decision Control Statements
+//  //1.
+//  int main() {
+//      system("clear");
+//      int no, digit_count = 0;
+//      printf("Enter a no: ");
+//      scanf("%d", &no);
+//      while(no) {
+//          no/=10;
+//          digit_count++;
+//      }
+//      printf("digit count %d", digit_count);
+//      printf("\n");
+//  	return 0;
+//  }
 
 // //2.
 // int main() {
@@ -656,7 +654,7 @@ int main() {
 //         printf("Lowercase %c", ch);
 //     else if(ch >= '0' && ch <= '9')
 //         printf("digit %c", ch);
-//     else 
+//     else
 //         printf("special charector %c", ch);
 //     printf("\n");
 // 	return 0;
@@ -669,7 +667,7 @@ int main() {
 //     scanf("%d%d%d",&s1, &s2, &s3);
 //     if(s1+s2 > s3 && s2+s3 > s1 && s3+s1 > s2)
 //         printf("Valid Triangle.");
-//     else 
+//     else
 //         printf("Not Valid Triangle.");
 //     printf("\n");
 // 	return 0;
@@ -684,29 +682,28 @@ int main() {
 //         printf("31 days.");
 //     else if(month == 2)
 //         printf("28 or 29 days.");
-//     else 
+//     else
 //         printf("30 days.");
 //     printf("\n");
 // 	return 0;
 // }
 
-//loop practice
-//1.
-// int main() {
-//     system("clear");
-//     int num, chance = 1;
-//     do {
-//         printf("Enter any even num: ");
-//         scanf("%d",&num);
-//         if((num&1) == 0) {
-//             printf("You Win.\n");
-//             break;
-//         }
-//     }while(++chance <= 3);
-    
-//     if(chance == 4)
-//         printf("Game Over.\n");    
+// loop practice
+// 1.
+//  int main() {
+//      system("clear");
+//      int num, chance = 1;
+//      do {
+//          printf("Enter any even num: ");
+//          scanf("%d",&num);
+//          if((num&1) == 0) {
+//              printf("You Win.\n");
+//              break;
+//          }
+//      }while(++chance <= 3);
 
+//     if(chance == 4)
+//         printf("Game Over.\n");
 
 //     printf("\n");
 // 	return 0;
@@ -735,7 +732,7 @@ int main() {
 //         for(int j = 1; j<=5; ++j) {
 //             if(j <= 6-i)
 //                 printf("*");
-//             else    
+//             else
 //                 printf(" ");
 //         }
 //         printf("\n");
@@ -744,21 +741,21 @@ int main() {
 // 	return 0;
 // }
 
-//Assignment no 7
-// //1.
-// int main() {
-//     system("clear");
-//     for(int i = 1; i<=5; ++i) {       
-//         printf("MySirG\n");
-//     }
-//     printf("\n");
-// 	return 0;
-// }
+// Assignment no 7
+//  //1.
+//  int main() {
+//      system("clear");
+//      for(int i = 1; i<=5; ++i) {
+//          printf("MySirG\n");
+//      }
+//      printf("\n");
+//  	return 0;
+//  }
 
 // //2.
 // int main() {
 //     system("clear");
-//     for(int i = 1; i<=10; ++i) {       
+//     for(int i = 1; i<=10; ++i) {
 //         printf("%d ", i);
 //     }
 //     printf("\n");
@@ -768,7 +765,7 @@ int main() {
 // //3.
 // int main() {
 //     system("clear");
-//     for(int i = 1; i<=10; ++i) {       
+//     for(int i = 1; i<=10; ++i) {
 //         printf("%d ", 11-i);
 //     }
 //     printf("\n");
@@ -778,7 +775,7 @@ int main() {
 // //4.
 // int main() {
 //     system("clear");
-//     // for(int i = 1; i<=20; ++i)       
+//     // for(int i = 1; i<=20; ++i)
 //     //     if(i&1)
 //     //         printf("%d ", i);
 //     for(int i = 1; i <= 19; i+=2)
@@ -790,12 +787,12 @@ int main() {
 // //5.
 // int main() {
 //     system("clear");
-//     // for(int i = 1; i<=20; ++i)       
+//     // for(int i = 1; i<=20; ++i)
 //     //     if(i&1)
 //     //         printf("%d ", 22-i);
-//     // for(int i = 1; i<=20; i+=2)       
+//     // for(int i = 1; i<=20; i+=2)
 //     //     printf("%d ", 20-i);
-//     for(int i = 1; i<=10; ++i)       
+//     for(int i = 1; i<=10; ++i)
 //         // printf("%d ", (20-i)-(i-1));
 //         printf("%d ", 21-2*i);
 //     printf("\n");
@@ -805,12 +802,12 @@ int main() {
 // //6.
 // int main() {
 //     system("clear");
-//     // for(int i = 1; i<=20; ++i)       
+//     // for(int i = 1; i<=20; ++i)
 //     //     if((i&1) == 0)
 //     //         printf("%d ", i);
-//     // for(int i = 2; i<=20; i+=2)       
+//     // for(int i = 2; i<=20; i+=2)
 //     //     printf("%d ", i);
-//     for(int i = 1; i<=10; ++i)       
+//     for(int i = 1; i<=10; ++i)
 //         printf("%d ", 2*i);
 //     printf("\n");
 // 	return 0;
@@ -819,12 +816,12 @@ int main() {
 // //7.
 // int main() {
 //     system("clear");
-//     // for(int i = 1; i<=20; ++i)       
+//     // for(int i = 1; i<=20; ++i)
 //     //     if((i&1) == 0)
 //     //         printf("%d ", 22-i);
-//     // for(int i = 2; i<=20; i+=2)       
+//     // for(int i = 2; i<=20; i+=2)
 //     //     printf("%d ", 22-i);
-//     for(int i = 1; i<=10; ++i)       
+//     for(int i = 1; i<=10; ++i)
 //         printf("%d ", 22-(2*i));
 //         printf("\n");
 // 	return 0;
@@ -833,7 +830,7 @@ int main() {
 // //8.
 // int main() {
 //     system("clear");
-//     for(int i = 1; i<=10; ++i)       
+//     for(int i = 1; i<=10; ++i)
 //         printf("%d ", i*i);
 //     printf("\n");
 // 	return 0;
@@ -842,7 +839,7 @@ int main() {
 // //9.
 // int main() {
 //     system("clear");
-//     for(int i = 1; i<=10; ++i)       
+//     for(int i = 1; i<=10; ++i)
 //         printf("%d ", i*i*i);
 //     printf("\n");
 // 	return 0;
@@ -851,7 +848,7 @@ int main() {
 // //10.
 // int main() {
 //     system("clear");
-//     for(int i = 1; i<=10; ++i)       
+//     for(int i = 1; i<=10; ++i)
 //         printf("5 * %d = %d", i, 5*i);
 //     printf("\n");
 // 	return 0;
@@ -893,7 +890,6 @@ int main() {
 //     printf("\n");
 //     return 0;
 // }
-
 
 // //4.
 // int main() {
@@ -979,7 +975,7 @@ int main() {
 //     return 0;
 // }
 
-//Assignment - 9 Use any loop
+// Assignment - 9 Use any loop
 
 // //.1
 // int main() {
@@ -1124,17 +1120,17 @@ int main() {
 //     //         ++i;
 //     // }
 
-//     while(n1 != 1 || n2 != 1) {  
+//     while(n1 != 1 || n2 != 1) {
 //         if(n1%i == 0) {
 //             flag = 1;
 //             n1/=i;
 //         }
-        
+
 //         if(n2%i == 0) {
 //             flag = 1;
 //             n2/=i;
 //         }
-        
+
 //         if(flag) {
 //             lcm*=i;
 //             flag = 0;
@@ -1162,7 +1158,7 @@ int main() {
 //     return 0;
 // }
 
-//switch case 
+// switch case
 
 // //1.
 // int main() {
@@ -1186,12 +1182,12 @@ int main() {
 //     return 0;
 // }
 
-//Assignment 10
+// Assignment 10
 
 // //1.
 // int main() {
 //     system("clear");
-//     int n, sum, cur = 1, last = 1, swap, i;
+//     int n, cur = 1, last = 1, swap, i;
 //     printf("Enter a num: ");
 //     scanf("%d", &n);
 //     for(i = 3; i <= n; ++i) {
@@ -1204,19 +1200,193 @@ int main() {
 //     return 0;
 // }
 
-//2.
+// //2.
+// int main() {
+//     system("clear");
+//     int n, cur = 1, last = 0, swap, i;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(i = 1; i <= n; ++i) {
+//         printf("%d ", cur);
+//         swap = cur;
+//         cur = cur+last;
+//         last = swap;
+//     }
+
+//     printf("\n");
+//     return 0;
+// }
+
+// //3.
+// int main() {
+//     system("clear");
+//     int n, cur = 1, last = 0, swap, i;
+//     printf("Enter a num: ");
+//     scanf("%d", &n);
+//     for(i = 1; i <= n; ++i) {
+//         if(cur == n) {
+//             printf("%d is a fibonacci series number.\n", cur);
+//             break;
+//         }
+//         swap = cur;
+//         cur = cur+last;
+//         last = swap;
+//     }
+
+//     if(cur != n)
+//         printf("%d is a not fibonacci series number.\n", n);
+//     printf("\n");
+//     return 0;
+// }
+
+// //4.
+// int main() {
+//     system("clear");
+//     int n1, n2, d, flag = 0;
+//     printf("Enter a num: ");
+//     scanf("%d%d", &n1, &n2);
+
+//     d = n1<n2 ? n1 : n2;
+//     while(d != 1) {
+//         if(n1%d == 0 && n2%d == 0)
+//             break;
+//         if(!flag) {
+//             d/=2;
+//             flag = 1;
+//         }
+//         else
+//             --d;
+//     }
+//     printf("%d and %d HCF is %d", n1, n2, d);
+//     printf("\n");
+//     return 0;
+// }
+
+// //5.
+// int main() {
+//     system("clear");
+//     int n1, n2, d, flag = 0;
+//     printf("Enter a num: ");
+//     scanf("%d%d", &n1, &n2);
+
+//     d = n1<n2 ? n1 : n2;
+//     while(d != 1) {
+//         if(n1%d == 0 && n2%d == 0)
+//             break;
+//         if(!flag) {
+//             d/=2;
+//             flag = 1;
+//         }
+//         else
+//             --d;
+//     }
+//     if(d > 1)
+//         printf("%d and %d are not co-prime", n1, n2);
+//     else
+//         printf("%d and %d are co-prime", n1, n2);
+//     printf("\n");
+//     return 0;
+// }
+
+// // 6.
+// int main()
+// {
+//     system("clear");
+//     int n1;
+//     printf("Enter a num: ");
+//     scanf("%d", &n1);
+
+//     int n = 2, i;
+//     while (n <= n1) {
+//         i = n/2;
+//         while (i != 1) {
+//             if(n%i == 0)
+//                 break;
+//             else
+//                 --i;
+//         }
+//         if (i == 1)
+//             printf("%d ", n);
+//         n++;
+//     }
+//     printf("\n");
+//     return 0;
+// }
+
+// //7.
+// int main()
+// {
+//     system("clear");
+//     int n1, n2, i;
+//     printf("Enter a num: ");
+//     scanf("%d%d", &n1, &n2);
+
+//     n1++;
+//     while (n1 < n2) {
+//         i = n1/2;
+//         while (i != 1) {
+//             if(n1%i == 0)
+//                 break;
+//             else
+//                 --i;
+//         }
+//         if (i == 1)
+//             printf("%d ", n1);
+//         n1++;
+//     }
+//     printf("\n");
+//     return 0;
+// }
+
+// //8.
+// int main()
+// {
+//     system("clear");
+//     int n1, i;
+//     printf("Enter a num: ");
+//     scanf("%d", &n1);
+
+//     n1++;
+//     while (1) {
+//         i = n1/2;
+//         while (i != 1) {
+//             if(n1%i == 0)
+//                 break;
+//             else
+//                 --i;
+//         }
+//         if (i == 1) {
+//             printf("%d ", n1);
+//             break;
+//         }
+//         n1++;
+//     }
+//     printf("\n");
+//     return 0;
+// }
+
+//9.
 int main() {
     system("clear");
-    int n, sum, cur = 1, last = 1, swap, i;
+    int n1, i;
     printf("Enter a num: ");
-    scanf("%d", &n);
-    for(i = 3; i <= n; ++i) {
-        swap = cur;
-        cur = cur+last;
-        last = swap;
+    scanf("%d", &n1);
+
+    n1++;
+    while (1) {
+        i = n1/2;
+        while (i != 1) {
+            if(n1%i == 0)
+                break;
+            else
+                --i;
+        }
+        if (i == 1) {
+            printf("%d ", n1);
+            break;
+        }
+        n1++;
     }
-    printf("%dth term is %d", n, cur);
     printf("\n");
     return 0;
 }
-
