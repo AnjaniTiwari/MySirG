@@ -1318,7 +1318,7 @@ int main() {
 // {
 //     system("clear");
 //     int n1, n2, i;
-//     printf("Enter a num: ");
+//     printf("Enter two num: ");
 //     scanf("%d%d", &n1, &n2);
 
 //     n1++;
@@ -1365,28 +1365,65 @@ int main() {
 //     return 0;
 // }
 
-//9.
-int main() {
-    system("clear");
-    int n1, i;
-    printf("Enter a num: ");
-    scanf("%d", &n1);
+// //9.
+// int main() {
+//     system("clear");
+//     int n1, sum = 0, remainder, val, count = 0, i;
+//     printf("Enter a num: ");
+//     scanf("%d", &n1);
 
-    n1++;
-    while (1) {
-        i = n1/2;
-        while (i != 1) {
-            if(n1%i == 0)
-                break;
-            else
-                --i;
+//     int n2 = n1;
+//     while(n2) {
+//         n2/=10;
+//         count++;
+//     }
+//     n2 = n1;
+//     while(n2) {
+//         val = i = 1;
+//         remainder = n2%10;
+//         while(i++ <= count)
+//             val*=remainder;
+//         sum+=val;
+//         n2/=10;
+//     }
+//     if(n1 == sum)
+//         printf("%d is a armstrong no.", n1);
+//     else
+//         printf("%d is not a armstrong no.", n1);
+
+//     printf("\n");
+//     return 0;
+// }
+
+// 10.
+int main()
+{
+    system("clear");
+    int n1, n2, sum = 0, remainder, val, count, i;
+
+    for (int n1 = 1; n1 <= 10000; ++n1)
+    {
+        sum = count = 0;
+        n2 = n1;
+        while (n2)
+        {
+            n2 /= 10;
+            count++;
         }
-        if (i == 1) {
+        n2 = n1;
+        while (n2)
+        {
+            val = i = 1;
+            remainder = n2 % 10;
+            while (i++ <= count)
+                val *= remainder;
+            sum += val;
+            n2 /= 10;
+        }
+        if (n1 == sum)
             printf("%d ", n1);
-            break;
-        }
-        n1++;
     }
+
     printf("\n");
     return 0;
 }
