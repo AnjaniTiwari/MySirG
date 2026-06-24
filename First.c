@@ -1401,18 +1401,15 @@ int main()
     system("clear");
     int n1, n2, sum = 0, remainder, val, count, i;
 
-    for (int n1 = 1; n1 <= 10000; ++n1)
-    {
+    for (int n1 = 1; n1 <= 10000; ++n1) {
         sum = count = 0;
         n2 = n1;
-        while (n2)
-        {
+        while (n2) {
             n2 /= 10;
             count++;
         }
         n2 = n1;
-        while (n2)
-        {
+        while (n2) {
             val = i = 1;
             remainder = n2 % 10;
             while (i++ <= count)
