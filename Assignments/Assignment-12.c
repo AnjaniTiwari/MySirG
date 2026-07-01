@@ -251,7 +251,7 @@ void f10() {
 #include <stdio.h>
 int main() {
     system("clear");
-    f7(10);
+    f9(10);
     printf("\n");
     return 0;
 }
