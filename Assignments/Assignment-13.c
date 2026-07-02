@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <stdlib.h>
 // Q1.
 void days_in_month(int month)
 {
@@ -133,44 +133,44 @@ void manu2()
             if(n1+n2>n3 && n2+n3>n1 && n1+n3>n2) {
                 if (n1 == n2 || n1 == n3 || n2 == n3)
                     printf("This is isosceles triangle sides.\n");
+                else
+                    printf("This is not isosceles triangle sides.\n");
             }
             else
-                printf("This is not isosceles triangle sides.\n");
+                printf("Not valid triangle.\n");
             break;
 
         case 2:
             printf("Enter three no: ");
             scanf("%d%d%d", &n1, &n2, &n3);
-            if (n1 > n2)
-            {
+
+            if(n1+n2>n3 && n2+n3>n1 && n1+n3>n2) { 
                 if (n1 * n1 == (n2 * n2) + (n3 * n3))
                     printf("Rightangle triangle.\n");
-                else
-                    printf("Not Rightangle triangle.\n");
-            }
-            else if (n2 >= n3)
-            {
-                if (n2 * n2 == (n1 * n1) + (n3 * n3))
+                else if (n2 * n2 == (n1 * n1) + (n3 * n3))
+                    printf("Rightangle triangle.\n");
+                else if (n3 * n3 == (n1 * n1) + (n2 * n2))
                     printf("Rightangle triangle.\n");
                 else
                     printf("Not Rightangle triangle.\n");
             }
             else
-            {
-                if (n3 * n3 == (n1 * n1) + (n2 * n2))
-                    printf("Rightangle triangle.\n");
-                else
-                    printf("Not Rightangle triangle.\n");
-            }
+                printf("Not valid triangle.\n");
             break;
 
         case 3:
             printf("Enter three no: ");
             scanf("%d%d%d", &n1, &n2, &n3);
-            if (n1 == n2 && n2 == n3)
-                printf("This is equilateral triangle sides.\n");
+
+            if(n1+n2>n3 && n2+n3>n1 && n1+n3>n2) { 
+                if (n1 == n2 && n2 == n3)
+                    printf("This is equilateral triangle sides.\n");
+                else
+                    printf("This is not equilateral triangle sides.\n");
+            }
             else
-                printf("This is not equilateral triangle sides.\n");
+                printf("Not valid triangle.\n");
+
             break;
 
         case 4:
@@ -202,10 +202,203 @@ void Q5(int value) {
 
 }
 
+//Q6
+void Q6() {
+    int marks;
+    printf("Enter your marks: ");
+    scanf("%d", &marks);
+    switch (marks)
+    {
+    case 90 ... 100:
+        printf("Grade A");
+        break;
+    case 80 ... 89:
+        printf("Grade B");
+        break;
+    case 70 ... 79:
+        printf("Grade C");
+        break;
+    case 60 ... 69:
+        printf("Grade D");
+        break;
+    case 50 ... 59:
+        printf("Grade E");
+        break;
+    case 0 ... 49:
+        printf("Grade F");
+        break;
+    default:
+        printf("Invaild Marks.");
+    }
+}
+
+//Q7
+void Q7() {
+    int choice, n1, sum;
+    while(1) {
+        printf("\n1.Factorial of a number.\n");
+        printf("2.Check Even or Odd\n");
+        printf("3.Sum of First N natural numbers.\n");
+        printf("4.Exit\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch (choice)
+        {
+        case 1:
+            printf("Enter a number: ");
+            scanf("%d", &n1);
+            sum = 1;
+            for(int i = n1; i > 1; --i)
+                sum*=i;
+            printf("Factorial of %d is %d", n1, sum);
+            break;
+        case 2:
+            printf("Enter a number: ");
+            scanf("%d", &n1);
+            if(n1&1)
+                printf("%d is Odd number.", n1);
+            else
+                printf("%d is Even number.", n1);
+            break;
+        case 3:
+            printf("Enter a number: ");
+            scanf("%d", &n1);
+            sum = 0;
+            for(int i = 1; i <= n1; ++i)
+                sum+=i;
+            printf("Sum of first %d natural no is %d", n1, sum);
+            break;
+        default:
+            exit(0);
+        }
+    }
+
+}
+
+//Q8
+void Q8() {
+    char ch;
+    printf("Enter any charactor: ");
+    scanf("%c", &ch);
+
+    switch(ch) {
+        case 'A' ... 'Z':
+            printf("Uppercase alphabet.");
+            break;
+        case 'a' ... 'z':
+            printf("Lowercase alphabet.");
+            break;
+        default :
+            printf("Special charactor.");
+    }
+
+}
+
+//Q9
+void Q9() {
+    char ch;
+    printf("Enter any charactor: ");
+    scanf("%c", &ch);
+
+    switch(ch) {
+        case 'A': case 'a': case 'E': case 'e':
+        case 'I': case 'i': case 'O': case 'o':
+        case 'U': case 'u':
+            printf("Vowel");
+            break;
+        case 'B' ... 'D': case 'F' ... 'H':
+        case 'J' ... 'N': case 'P' ... 'T': 
+        case 'V' ... 'Z': 
+        case 'b' ... 'd': case 'f' ... 'h': 
+        case 'j' ... 'n': case 'p' ... 't': 
+        case 'v' ... 'z':
+            printf("Consonant.");
+            break;
+        default :
+            printf("Special charactor.");
+    }
+
+}
+
+//Q10
+void LCM() {
+    int n1, n2;
+    printf("Enter two number: ");
+    scanf("%d%d", &n1, &n2);
+    int i = 2, sum = 1;
+    while(n1 != 1 || n2 != 1) {
+        if(n1%i != 0 && n2%i != 0) {
+            ++i;
+            continue;
+        }    
+        if(n1%i == 0) {
+            n1/=i;
+        }
+        if(n2%i == 0)
+            n2/=i;
+        sum*=i;
+    }
+    printf("LCM is %d", sum);
+}
+
+void digit_sum() {
+    int n1, sum = 0;
+    printf("Enter a number: ");
+    scanf("%d", &n1);
+    
+    while(n1 != 0) {
+        sum+=(n1%10);
+        n1/=10;
+    }
+    printf("Digit sum is %d", sum);
+}
+
+void cuboid() {
+    int n1, n2, n3;
+    printf("Enter sides of cuboid: ");
+    scanf("%d%d%d", &n1, &n2, &n3);
+    
+    printf("volume of cuboid %d", n1*n2*n3);
+
+}
+void Q10() {
+    int choice, n1, n2, sum;
+    while(1) {
+        printf("\n1.LCM of two numbers.\n");
+        printf("2.Sum of the digits of a number\n");
+        printf("3.Volume of a cuboid.\n");
+        printf("4.Exit.\n");
+
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+
+        switch(choice) {
+            case 1:
+                LCM();
+                break;
+            case 2:
+                digit_sum();
+                break;
+            case 3:
+                cuboid();
+                break;
+            case 4:
+                exit(0);
+            default:
+                printf("Invalid choice.\n");
+        }
+
+    }
+
+}
+
 int main()
 {
     system("clear");
-    manu2();
+    Q10();
 
     printf("\n");
+    return 0;
 }
