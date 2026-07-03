@@ -363,13 +363,31 @@ void cuboid() {
     printf("volume of cuboid %d", n1*n2*n3);
 
 }
+
+void is_prime() {
+    int n1, i;
+    printf("Enter a number: ");
+    scanf("%d", &n1);
+    
+    for(i = 2; i <= n1/2; ++i) {
+        if(n1%i == 0)
+            break;
+    }
+
+    if(n1 > 1 && i > n1/2)
+        printf("%d is prime number.\n", n1);
+    else
+        printf("%d is not prime number.\n", n1);
+}
+
 void Q10() {
     int choice, n1, n2, sum;
     while(1) {
         printf("\n1.LCM of two numbers.\n");
         printf("2.Sum of the digits of a number\n");
         printf("3.Volume of a cuboid.\n");
-        printf("4.Exit.\n");
+        printf("4.Check Prime no.\n");
+        printf("5.Exit.\n");
 
         printf("Enter your choice: ");
         scanf("%d", &choice);
@@ -385,7 +403,11 @@ void Q10() {
                 cuboid();
                 break;
             case 4:
+                is_prime();
+                break;
+            case 5:
                 exit(0);
+                break;
             default:
                 printf("Invalid choice.\n");
         }
