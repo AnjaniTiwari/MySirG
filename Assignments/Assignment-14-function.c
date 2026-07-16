@@ -58,7 +58,7 @@ int is_number_contains_digit(int num, int digit) {
 }
 
 //Q10
-void print_all_prime_factors(int num) {
+void prime_factors(int num) {
     int d = 2;
     while(num != 1) {
         if(num%d == 0) {
@@ -82,7 +82,7 @@ int main()
     // printf("%d", combination(3, 2));
     // printf("%d ", permutation(3, 2));
     // printf("%d ", is_number_contains_digit(39871, 2));
-    print_all_prime_factors(75);
+    prime_factors(39);
     printf("\n");
     return 0;
 }
