@@ -61,12 +61,11 @@ int is_number_contains_digit(int num, int digit) {
 void prime_factors(int num) {
     int d = 2;
     while(num != 1) {
-        if(num%d == 0) {
+        while(num%d == 0) {
             printf("%d ", d);
             num/=d;
         }
-        else
-            d++;
+        d++;
     }
 }
 
@@ -82,7 +81,11 @@ int main()
     // printf("%d", combination(3, 2));
     // printf("%d ", permutation(3, 2));
     // printf("%d ", is_number_contains_digit(39871, 2));
-    prime_factors(39);
+    // prime_factors(39);
+    char str[10] = {'B', 'H', 'O', 'P', 'A', 'L'};
+    for(int i = 0; str[i]; ++i)
+        printf("%c", str[i]);
+    
     printf("\n");
     return 0;
 }
