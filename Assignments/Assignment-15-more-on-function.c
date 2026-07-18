@@ -173,7 +173,7 @@ int main()
     // n_prime(n);
     // between_prime(7, 23);
     // n_fibonacci_series(10);
-    pascal_triangle(5);
+    pascal_triangle(8);
     // between_armstrong(-1, 20);
     // printf("%d ", sum_of_the_series(5));
     printf("\n");
