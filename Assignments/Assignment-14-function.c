@@ -30,7 +30,7 @@ void odd_natural_number(int num)
 int factorial(int num)
 {
     int fact = 1;
-    while(num) {
+    while(num > 1) {
         fact*=num;
         --num;
     }
@@ -39,7 +39,7 @@ int factorial(int num)
 
 //Q7
 int combination(int n, int r) {
-    return factorial(n)/ factorial(r) * factorial(n-r);
+    return factorial(n)/ (factorial(r) * factorial(n-r));
 }
 
 //Q8
@@ -69,23 +69,23 @@ void prime_factors(int num) {
     }
 }
 
-int main()
-{
-    system("clear");
-    // printf("%f", circle_area(3));
-    // printf("%f", simple_interest(10000, 5, 2));
-    // printf("%s", is_even(24) ? "Even" : "Odd");
-    // natural_number(10);
-    // odd_natural_number(10);
-    // printf("%d", factorial(3));
-    // printf("%d", combination(3, 2));
-    // printf("%d ", permutation(3, 2));
-    // printf("%d ", is_number_contains_digit(39871, 2));
-    // prime_factors(39);
-    char str[10] = {'B', 'H', 'O', 'P', 'A', 'L'};
-    for(int i = 0; str[i]; ++i)
-        printf("%c", str[i]);
+// int main()
+// {
+//     system("clear");
+//     // printf("%f", circle_area(3));
+//     // printf("%f", simple_interest(10000, 5, 2));
+//     // printf("%s", is_even(24) ? "Even" : "Odd");
+//     // natural_number(10);
+//     // odd_natural_number(10);
+//     // printf("%d", factorial(3));
+//     // printf("%d", combination(3, 2));
+//     // printf("%d ", permutation(3, 2));
+//     // printf("%d ", is_number_contains_digit(39871, 2));
+//     // prime_factors(39);
+//     char str[10] = {'B', 'H', 'O', 'P', 'A', 'L'};
+//     for(int i = 0; str[i]; ++i)
+//         printf("%c", str[i]);
     
-    printf("\n");
-    return 0;
-}
+//     printf("\n");
+//     return 0;
+// }

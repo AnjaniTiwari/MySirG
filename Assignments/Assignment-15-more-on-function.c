@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include "Assignment-14-function.c"
 //Q1
 int lcm(int n1, int n2) {
     int d = 2, lcm = 1, flag;
@@ -87,13 +87,14 @@ void n_fibonacci_series(int num) {
 
 //Q8
 void pascal_triangle(int n) {
-    int flag;
+    int flag, r;
     for(int i  = 1; i <= n; ++i) {
         flag = 1;
+        r = 0;
         for(int j = 1; j <= (2*n)-1; ++j) {
             if(j >= n+1-i && j <= n-1+i) {
                 if(flag) {
-                    printf(" * ");
+                    printf("%3d", combination(i-1, r++));
                     flag = 0;
                 }
                 else {
@@ -144,14 +145,14 @@ void between_armstrong(int n1, int n2) {
 }
 
 //Q10
-int factorial(int num) {
-    int fact = 1;
-    while(num > 1) {
-        fact*=num;
-        --num;
-    }
-    return fact;
-}
+// int factorial(int num) {
+//     int fact = 1;
+//     while(num > 1) {
+//         fact*=num;
+//         --num;
+//     }
+//     return fact;
+// }
 
 int sum_of_the_series(int n) {
     int sum = 0;
@@ -171,8 +172,8 @@ int main()
     // printf("%d ", next_prime(n));
     // n_prime(n);
     // between_prime(7, 23);
-    n_fibonacci_series(10);
-    // pascal_triangle(10);
+    // n_fibonacci_series(10);
+    pascal_triangle(5);
     // between_armstrong(-1, 20);
     // printf("%d ", sum_of_the_series(5));
     printf("\n");
