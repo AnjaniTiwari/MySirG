@@ -43,11 +43,49 @@ int factorial(int num) {
 }
 
 //Q7
-int HCF(int num1, int num2, int hcf) {
-    hcf = num1 > num2 ? num1 : num2;
-    if(hcf%num1 == 0 && hcf%num2 == 0)
-        return hcf;
-    HCF(num1, num2, hcf+1);
+int HCF(int num1, int num2) {
+    if(num1 >= num2) {
+        if(num2 == 0 || num1%num2 == 0)
+            return num2;
+        return HCF(num1%num2, num2);
+    }
+    else { 
+        if(num1 == 0 || num2%num1 == 0)
+            return num1;
+        return HCF(num2%num1, num1);
+    }
+}
+
+//Q8
+int fib(int n) {
+    if(n == 0 || n == 1)
+        return n;
+    return fib(n-2) + fib(n-1);
+}
+void printFib(int n) {
+    if(n == 0)
+        printf("%d ", n);
+    else {
+        printFib(n-1);
+        printf("%d ", fib(n));
+    }
+}
+
+//Q9
+int digit_count(int num) {
+    if(!num)
+        return 0;
+    return 1 + digit_count(num/10);
+}
+
+//Q10
+float power(float num, float p) {
+    if(p == 0)
+        return 1;
+    if(p > 0)
+        return num * power(num, p-1);
+    else
+        return power(num, p+1)/num;
 }
 
 int main() {
@@ -58,7 +96,10 @@ int main() {
     // printf("%d", natural_num_squares_sum(3));
     // printf("%d", sum_of_digit(3212));
     // printf("%d", factorial(5));
-    printf("%d", HCF(2, 3, 0));
+    // printf("%d", HCF(48, 18));
+    // printFib(15);
+    // printf("%d", digit_count(123));
+    printf("%f", power(2, -2));
     printf("\n");
     return 0;
 }
