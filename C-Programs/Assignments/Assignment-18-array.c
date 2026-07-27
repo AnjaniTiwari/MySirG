@@ -145,9 +145,9 @@ void sum_of_array(int size) {
     // arr_cpy(arr, arr2, size);
 }
 
-int main() {
-    sum_of_array(5);
+// int main() {
+//     sum_of_array(5);
 
-    printf("\n");
-    return 0;
-}
+//     printf("\n");
+//     return 0;
+// }

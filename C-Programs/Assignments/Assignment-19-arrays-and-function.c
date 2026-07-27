@@ -94,44 +94,55 @@ void swap_element(int* arr, int size, int index1, int index2) {
 }
 
 //Q7
-int check_duplicate(int* arr, int size, int element) {
-    for(int i = 0; i < size; ++i)
-        if(arr[i] == element)
-            return 0;
-    return 1;
-
-}
-int duplicate_count(int* arr, int size) {
-    int i, count = 0;
-    int doubly[size/2];
-
-    for(i = 0; i < size-1; ++i) {
-        for(int j = i+1; j < size; ++j) {
-            if(arr[i] == arr[j]) {
-                if(check_duplicate(doubly, count, arr[i]))
-                    doubly[count++] = arr[i];
-            }
-        }
+int count_duplicate(int* arr, int size) {
+    int i = 0, j = 1, count = 0;
+    array_sort(arr, size);
+    while(i < size-1) {
+        if(arr[i] == arr[j])
+            count++;
+        while(arr[i] == arr[j])
+            j++;
+        i = j;
+        j++;
     }
     return count;
 }
 
-void print_unique_elemets(int* arr, int size) {
-    int count = 0, j = 0;
+//Q8
+int print_unique_elemets(int* arr, int size) {
     array_sort(arr, size);
-    for(int i = 0; i < size; ++i) {
-        j = i+1;
-        if(arr[i] == arr[j]) {
-            while(arr[i] == arr[j+1])
-                j++;
-            i = j;
+    int i = 0, count = 0;
+    while(i < size) {
+        if(i > 0) {
+            if(arr[i] != arr[i-1])
+                count++;
+        } 
+        else 
+            count++;  
+        i++; 
+    }
+    return count;       
+}
+
+//Q10
+void frequency(int* arr, int size) {
+    int count;
+    int i = 0;
+    int j = 1;
+    while(i < size) {
+        count = 1;
+        while(i < size-1 && arr[i] == arr[j]) {
+            count++;
+            j++;
         }
-        count++;
-    }    
+        printf("%d - %d\n", arr[i], count);
+        i = j;
+        j++;
+    }
 }
 
 int main() {
-    int size = 5;
+    int size = 6;
     int arr[size];
 
     printf("Enter %d numbers: ", size);
@@ -145,7 +156,9 @@ int main() {
     // array_rotation(arr, size, 2, 1);
     // adjacent_duplicate(arr, size);
     // swap_element(arr, size, 0, 3);
-    printf("duplicate count %d", duplicate_count(arr, size));
+    // printf("count duplicate %d", count_duplicate(arr, size));
+    // printf("Unique element %d", print_unique_elemets(arr, size));
+    frequency(arr, size);
     printf("\n");
     return 0;
 }
