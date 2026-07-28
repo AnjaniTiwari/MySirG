@@ -3,21 +3,23 @@
 using namespace std;
 
 struct book {
-    int bookid;
-    char title[20];
-    float price;
+    private:
+        int bookid;
+        char title[20];
+        float price;
     
-    void input() {
-        cout << "Enter bookid, title and price: ";
-        cin >> bookid;
-        cin.ignore();
-        cin.getline(title, sizeof(title));
-        cin >> price;
-    }
+    public:
+        void input() {
+            cout << "Enter bookid, title and price: ";
+            cin >> bookid;
+            cin.ignore();
+            cin.getline(title, sizeof(title));
+            cin >> price;
+        }
 
-    inline void display() {
-        cout << bookid << " " << title << " " << price << endl;    
-    }
+        inline void display() {
+            cout << bookid << " " << title << " " << price << endl;    
+        }
 };
 
 
