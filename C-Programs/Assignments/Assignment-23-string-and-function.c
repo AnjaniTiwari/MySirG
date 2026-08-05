@@ -18,13 +18,13 @@ void trim_spaces_both_end(char str[]) {
     while(non_space < len) {
         str[i++] = str[non_space++];
     }
-    non_space--;
+    non_space = i-1;
     while(str[non_space] == ' ') non_space--;
     str[non_space+1] = '\0';
 }
 
 //Q3
-int count_words(char* str) {
+int word_count(char* str) {
     int count = 0;
     int len = strlen(str);
     if(str[0] == ' ' || str[len-1] == ' ') {
@@ -122,21 +122,73 @@ int find_word(char* str, char* word) {
     int w_len = strlen(word);
     int j, x;
     if(w_len <= s_len) {
-        for(int i = 0; i < s_len; ++i) {
-            j = 0;
-            while(i+j < s_len && str[i+j] != ' ')
+        for(int i = 0; i < s_len; i=j+1) {
+            j = i;
+            while(j < s_len && str[j] != ' ') {
                 j++;
-            if(j == w_len) {
-                for(x = 0; x < w_len; ++x)
-                    if(word[x] != str[i+x])
+            }
+            if(j-i == w_len) {
+                for(x = 0; x < j-i; ++x)
+                    if(str[i+x] != word[x])
                         break;
-                if(x == w_len)
+                if(x == j-i)
                     return 1;
             }
-            i = j+1;
         }
     }       
     return 0; 
+}
+
+//Q8
+void first_word_capital(char* str) {
+    int len = strlen(str);
+    int i = 0;
+    do {
+        if(str[i] >= 'a' && str[i] <= 'z')
+            str[i]-=32;
+        i++;
+        while(i < len && str[i] != ' ') i++;
+        i++;
+    } while(i < len);
+}
+
+//Q9
+void acronym_name(char* str) {
+    int len = strlen(str);
+    int i = 0, j = 0, x;
+    int count = word_count(str);
+    while(count) {
+        if(str[i] >= 'a' && str[i] <= 'z')
+            str[i]-=32;
+        if(count > 1) {
+                j = i;
+            while(str[j] != ' ') j++;
+            x = i+1;
+            while(j < len) {
+                str[x] = str[j];
+                x++;
+                j++;
+            }
+            str[x] = '\0';
+            len = x;
+        }
+        i+=2;
+        count--;
+    }
+}
+
+void concatenate(char* str1, int l, char* str2) {
+    int l1 = strlen(str1);
+    int l2 = strlen(str2);
+    int i;
+
+    if(l2 < l-l1) {
+        str1[l1] = ' ';
+        for(i = 0; i < l2; ++i) {
+            str1[l1+1+i] = str2[i];
+        }
+        str1[l1+1+i] = '\0';
+    }
 }
 
 int main() { 
@@ -145,16 +197,23 @@ int main() {
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
     str[strlen(str)-1] = '\0';
+    // printf("Enter a find string: ");
+    // fgets(str2, sizeof(str2), stdin);
+    // str2[strlen(str2)-1] = '\0';
     // printf("%s %d", str, palindrome(str));
     // printf("%s\n", str);
-    // trim_spaces_both_end(str);
+    // trim_spaces_both_end(str); 
     // printf("%s", str);
-    // printf("%s total words %d", str, count_words(str));
+    printf("%s total words %d", str, word_count(str)); //check
     // swap_words(str);
     // printf("%s", str);
     // printf("%d", case_insensitive_compare(str, str2));
     // charector_frequency(str);
-    printf("%s find %s result- %d", str, str2, find_word(str, str2));
+    // printf("%s find %s result- %d", str, str2, find_word(str, str2));
+    // first_word_capital(str);
+    // acronym_name(str);
+    // concatenate(str, 30, str2);
+    // printf("%s", str);
     printf("\n");
     return 0; 
 }
