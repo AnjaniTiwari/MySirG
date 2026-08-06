@@ -96,6 +96,7 @@ void charector_frequency(char* str) {
     int len = strlen(str);
     char str2[len];
     int i, j, x = -1, y, count;
+    
     printf("Charector Frequency.\n");
     for(i = 0; i < len; ++i) {
         for(j = 0; j <= x; ++j)
@@ -124,9 +125,8 @@ int find_word(char* str, char* word) {
     if(w_len <= s_len) {
         for(int i = 0; i < s_len; i=j+1) {
             j = i;
-            while(j < s_len && str[j] != ' ') {
+            while(j < s_len && str[j] != ' ') 
                 j++;
-            }
             if(j-i == w_len) {
                 for(x = 0; x < j-i; ++x)
                     if(str[i+x] != word[x])
@@ -143,13 +143,13 @@ int find_word(char* str, char* word) {
 void first_word_capital(char* str) {
     int len = strlen(str);
     int i = 0;
-    do {
+    while(i < len) {
         if(str[i] >= 'a' && str[i] <= 'z')
             str[i]-=32;
         i++;
         while(i < len && str[i] != ' ') i++;
-        i++;
-    } while(i < len);
+        while(i < len && str[i] == ' ') i++;
+    } 
 }
 
 //Q9
@@ -177,6 +177,7 @@ void acronym_name(char* str) {
     }
 }
 
+//Q10
 void concatenate(char* str1, int l, char* str2) {
     int l1 = strlen(str1);
     int l2 = strlen(str2);
@@ -191,29 +192,29 @@ void concatenate(char* str1, int l, char* str2) {
     }
 }
 
-int main() { 
-    char str[30];
-    char str2[20] = "AbC";
+int main1() { 
+    char str[50];
+    char str2[50] = "AbC";
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin);
     str[strlen(str)-1] = '\0';
-    // printf("Enter a find string: ");
-    // fgets(str2, sizeof(str2), stdin);
-    // str2[strlen(str2)-1] = '\0';
+    printf("Enter a find string: ");
+    fgets(str2, sizeof(str2), stdin);
+    str2[strlen(str2)-1] = '\0';
     // printf("%s %d", str, palindrome(str));
     // printf("%s\n", str);
     // trim_spaces_both_end(str); 
     // printf("%s", str);
-    printf("%s total words %d", str, word_count(str)); //check
+    // printf("%s total words %d", str, word_count(str)); //check
     // swap_words(str);
     // printf("%s", str);
     // printf("%d", case_insensitive_compare(str, str2));
     // charector_frequency(str);
     // printf("%s find %s result- %d", str, str2, find_word(str, str2));
-    // first_word_capital(str);
-    // acronym_name(str);
+    // first_word_capital(str); //check "hello  word"
+    acronym_name(str);
     // concatenate(str, 30, str2);
-    // printf("%s", str);
+    printf("%s", str);
     printf("\n");
     return 0; 
 }
