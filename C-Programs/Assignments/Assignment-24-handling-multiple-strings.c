@@ -78,31 +78,112 @@ void store_char(char (*str1)[50], int str1_size, char* str2, int str2_size) {
 
 //Q5
 void remove_duplicate(char (*str)[50], int size) {
-    int i, j, k, len;
-    for(i = 0; i < size-1; ++i) {
-        len = strlen(str[i]);
-        for(j = i+1; j < size-1; ++j) {
-            if(len == strlen(str[j]) && case_insensitive_compare(str[i], str[j])) {
-                for(k = j; k < size-1-i; ++k) {
-                    strcpy(str[k], str[k+1]);
-                }
-                str[k][0] = '\0'; 
-                size--;
+    int i, j, k, len, null_count;
+    for(i = 0; i < size; ++i) {
+        j = i+1;
+        while(j < size) {
+            if(case_insensitive_compare(str[i], str[j])) {
+                str[j][0] = '\0';
             }
+            j++;
+        }
+        j = i+1;
+        while(j < size) {
+            if(str[j][0] == '\0') {
+                k = j;
+                null_count = 1;
+                while(k < size-1) {
+                    if(str[k+1] != '\0') 
+                        strcpy(str[k], str[k+1]);
+                    else
+                        null_count++;
+                    k++;   
+                } 
+                str[k][0] = '\0';
+                size-=null_count;
+            }
+            j++;
         }
     }
 }
 
+//Q6
+void spearate_ending_s_words(char* str1, char (*str2)[50], int size) {
+    int f_pos = 0, i, j, k = 0, len = strlen(str1);
+    for(i = 0; i < len; ++i) { 
+        if(str1[i+1] == ' ' || str1[i+1] == '\0') {
+            if(str1[i] == 'S' || str1[i] == 's') {
+               j = 0;
+                while(j <= i-f_pos) {
+                   str2[k][j] = str1[f_pos+1+j];
+                   j++;  
+               }
+               str2[k][j] = '\0';
+               k++;
+            }
+            f_pos = i+1;
+        }
+    }
+}
+
+//Q7
+void most_repeating(char (*str)[50], int size) {
+    int i, j, len;
+    char ch[128] = {'\0'};
+
+    for(i = 0; i < size; ++i) {
+        len = strlen(str[i]);
+        for(j = 0; j < len; ++j) {
+            ch[str[i][j]]++;
+        }
+    }
+
+    len = 1;
+    for(i = 0; i < 128; ++i) {
+        if(len < ch[i]) {
+            j = i;
+            len = ch[i];
+        }
+    }
+    printf("most repeated %c - %d", j, ch[j]);
+}
+
+//Q8
+int anagram_string(char (*str)[50], int size) {
+    int i, j, k, len;
+    char ch[2][128] = {'\0'};
+
+    for(i = 0; i < size; ++i) {
+        len = strlen(str[i]);
+        for(j = 0; j < len; ++j) {
+            ch[i][str[i][j]]++;
+        }
+    }
+    
+
+    for(i = 0; i < 128; ++i) {
+        if(ch[0][i] != '\0' || ch[1][i] != '\0')
+            printf("%c - %d | %c - %d\n", i, ch[0][i], i, ch[1][i]);
+        if(ch[0][i] != ch[1][i])
+            return 0;
+    }
+    return 1;
+
+
+}
+
 int main() {
     char str[20][50] = {'\0'};
-    char *str2 = " My name is anjani";
+    char *str2 = "  ramesh likes cars    and   plays games  ";
     system("clear");
-    input_string(str, 5);
+    input_string(str, 2);
     // find_vowels(str, 5);
     // sort_city_name(str, 5);
     // store_char(str, 20, str2, strlen(str2));
-    remove_duplicate(str, 5);
-    print_string(str, 20);
+    // remove_duplicate(str, 5);
+    // spearate_ending_s_words(str2, str, 20);
+    printf("anagram string %d\n", anagram_string(str, 2));
+    // print_string(str, 20);
     printf("\n");
     return 0;
 }
