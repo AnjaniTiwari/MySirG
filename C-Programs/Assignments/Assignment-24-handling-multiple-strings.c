@@ -19,7 +19,7 @@ void input_string(char(*p)[50], int total_string) {
 }
 
 //Q2
-void find_vowels(char (*p)[50], int size) {
+void vowel_count(char (*p)[50], int size) {
     int i, vowels, len;
     for(i = 0; i < size; ++i) {
         vowels = 0; 
@@ -172,18 +172,56 @@ int anagram_string(char (*str)[50], int size) {
 
 }
 
+//Q9
+void spearate_start_a_words(char* str1, char (*str2)[50], int size) {
+    int word_len, s_pos, i, j, k = 0, len = strlen(str1);
+    for(i = 0; i < len; ++i) {
+        while(str1[i] == ' ') ++i; 
+        s_pos = i;
+        word_len = 0;
+        while(i <= len && str1[i+1] != ' ' && str1[i+1] != '\0') {
+            i++;    
+            word_len++;
+        }
+        if(str1[s_pos] == 'A' || str1[s_pos] == 'a') {
+            for(j = 0; j <= word_len; ++j) {
+                str2[k][j] = str1[s_pos+j];
+            } 
+            str2[k][j] = '\0';
+            k++;
+            i++;
+        }
+    }
+}
+
+//Q10
+int gmail_count(char (*str)[50], int size) {
+    int i, j, len, count = 0;
+    char cmp[] = "gmail.com";
+    for(i = 0; i < size; ++i) {
+        len = strlen(str[i]);
+        if(len-9 > 0) {
+            if(case_insensitive_compare(&str[i][len-9], cmp))
+                count++;
+        }
+    }
+    return count;
+}
+
 int main() {
     char str[20][50] = {'\0'};
     char *str2 = "  ramesh likes cars    and   plays games  ";
     system("clear");
-    input_string(str, 2);
-    // find_vowels(str, 5);
+    input_string(str, 3);
+    // vowel_count(str, 5);
     // sort_city_name(str, 5);
     // store_char(str, 20, str2, strlen(str2));
     // remove_duplicate(str, 5);
     // spearate_ending_s_words(str2, str, 20);
-    printf("anagram string %d\n", anagram_string(str, 2));
-    // print_string(str, 20);
+    // printf("anagram string %d\n", anagram_string(str, 2));
+    // spearate_start_a_words(str2, str, 20);
+    printf("Total gmail in list : %d", gmail_count(str, 3));;
+    // print_string(str, 3);
     printf("\n");
     return 0;
 }
