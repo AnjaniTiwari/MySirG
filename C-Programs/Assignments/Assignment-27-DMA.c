@@ -3,12 +3,23 @@
 #include <stdlib.h>
 
 //Q1
-char* store_string(char* str) {
-    int len = strlen(str);
-    char* temp = (char*)calloc(sizeof(char), len+1);
-    if(temp)
-        strcpy(temp, str);
-    return temp;
+char* input_string() {
+    char ch;
+    char* str = NULL, *temp = NULL;
+    int slen = 0;
+    printf("Enter text: ");
+    while(1) {
+        ch = getchar();
+        if(ch == '\n' || ch == '\r')
+            break;
+        slen++;
+        temp = (char*)realloc(str, slen+1);
+        if(temp)
+            str = temp;
+        str[slen-1] = ch;
+    }
+    str[slen] = '\0';
+    return str;
 }
 
 //Q2
@@ -111,19 +122,51 @@ void display_team(Team* t) {
 
 //Q9
 Student** student_arr(int size) {
-    return (Student**)calloc(sizeof(Student), size);
+    return (Student**)calloc(sizeof(Student*), size);
+}
+
+//Q10
+Team** team_arr(int size) {
+    return (Team**)calloc(sizeof(Team*), size);
+}
+
+//Q11
+void driver() {
+    Team t_arr[3];
+    int i, j;
+    for(i = 0; i < 3; ++i) {
+        printf("\nTeam : %d", i+1);
+        for(j = 0; j < 2; ++j) {
+            printf("\nEnter student rollno, name and college:");
+            scanf("%d", &t_arr[i].s[j].rollno);
+            getchar();
+            fgets(t_arr[i].s[j].name, sizeof(t_arr[i].s[j].name), stdin);
+            t_arr[i].s[j].name[strlen(t_arr[i].s[j].name)-1] = '\0';
+            getchar();
+            fgets(t_arr[i].s[j].college, sizeof(t_arr[i].s[j].college), stdin);
+            t_arr[i].s[j].college[strlen(t_arr[i].s[j].college)-1] = '\0';
+        }
+    }
+
+    printf("\n");
+
+    for(i = 0; i < 3; ++i) {
+        printf("\nTeam : %d", i+1);
+        for(j = 0; j < 2; ++j) {
+            printf("\nRollno %d Name %s College %s\n", t_arr[i].s[j].rollno, 
+                                                     t_arr[i].s[j].name, 
+                                                     t_arr[i].s[j].college);
+        }
+        printf("\n\n");
+    }
 }
 
 int main() {
     system("clear");
     
-    // char str[20];
-    // printf("Enter string: ");
-    // fgets(str, sizeof(str)-1, stdin);
-    // str[strlen(str)-1] = '\0';
-    // char* temp = store_string(str);
-    // printf("%s", temp);
-    // free(temp);
+    char* temp = input_string();
+    printf("%s", temp);
+    free(temp);
 
     // input_values();
 
@@ -138,6 +181,7 @@ int main() {
     //     free(arr);
     // }
 
+    // driver();
 
     printf("\n");
     return 0;
