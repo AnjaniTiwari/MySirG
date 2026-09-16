@@ -85,7 +85,7 @@ void print_strings(char** str, int x) {
 
 int main() {
     system("clear");
-	char str[] = "ABCDEFGF";
+	char str[] = "ABCDEFG";
 	int x = combination(strlen(str), 6);
 	char** arr = string_combination(str, 6);
 	print_strings(arr, x);
