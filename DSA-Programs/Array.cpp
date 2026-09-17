@@ -7,6 +7,9 @@ class Array {
     int capacity;
     int lastIndex;
     public :
+        Array();
+        Array(Array& obj);
+        Array& operator=(Array& obj);
         void createArray(int size);
         void insert(int value, int index);
         void append(int value);
@@ -20,8 +23,39 @@ class Array {
         ~Array();
 };
 
+Array::Array() {
+    arr = NULL;
+}
+
+Array::Array(Array& obj) {
+    arr = new int[obj.capacity];
+    if(arr) {
+        for(int i = 0; i <= lastIndex; ++i)
+            arr[i] = obj.arr[i];
+        capacity = obj.capacity;
+        lastIndex = obj.lastIndex;
+    }
+}
+
+Array& Array::operator=(Array& obj) {
+    if(this != &obj) {
+        if(arr)
+            delete []arr;
+        arr = new int[obj.capacity];
+        if(arr) {
+            for(int i = 0; i <= lastIndex; ++i)
+                arr[i] = obj.arr[i];
+            capacity = obj.capacity;
+            lastIndex = obj.lastIndex;
+        }
+    }
+    return *this;
+}
+
 void Array::createArray(int size) {
     if(size > 0) {
+        if(arr)
+            delete []arr;
         arr = new int[size];
         capacity = size;
         lastIndex = -1;
@@ -37,7 +71,7 @@ void Array::insert(int value, int index) {
 }
 
 void Array::append(int value) {
-    if(lastIndex+1 >= capacity) {
+    if(isFull()) {
         int* tmp = new int[capacity+50];
         if(tmp) {
             for(int i = 0; i < capacity; ++i) 
@@ -58,21 +92,15 @@ int Array::getItem(int index) {
 }
 
 bool Array::isEmpty() {
-    if(lastIndex == -1)
-        return true;
-    else
-        return false;
+    return lastIndex == -1;
 }
 
 bool Array::isFull() {
-    if(lastIndex+1 >= capacity)
-        return true;
-    else
-        return false;
+    return lastIndex == capacity-1;
 }
 
 void Array::del(int index) {
-    if(index <= lastIndex) {
+    if(index >= 0 && index <= lastIndex) {
         for(int i = index; i < lastIndex; ++i)
             arr[i] = arr[i+1];
         --lastIndex;
@@ -80,13 +108,13 @@ void Array::del(int index) {
 }
 
 void Array::edit(int value, int index) {
-    if(index <= lastIndex) {
+    if(index >= 0 && index <= lastIndex) {
         arr[index] = value;
     }
 }
 
 int Array::count() {
-    return lastIndex;
+    return lastIndex+1;
 }
 
 int Array::getCapacity() {
@@ -100,6 +128,5 @@ Array::~Array() {
 int main() {
     Array obj;
     // obj.input(10);
-
     return 0;
 }
