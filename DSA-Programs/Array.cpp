@@ -63,7 +63,7 @@ void Array::createArray(int size) {
 }
 
 void Array::insert(int value, int index) {
-    if(index < lastIndex) {
+    if(index >= 0 && index < lastIndex) {
         for(int i = ++lastIndex; i > index; --i)
             arr[i] = arr[i-1]; 
         arr[index] = value;
@@ -72,11 +72,11 @@ void Array::insert(int value, int index) {
 
 void Array::append(int value) {
     if(isFull()) {
-        int* tmp = new int[capacity+50];
+        int* tmp = new int[capacity*2];
         if(tmp) {
             for(int i = 0; i < capacity; ++i) 
                 tmp[i] = arr[i];
-            capacity+=50;
+            capacity*=2;
             delete []arr;
             arr = tmp;
         }
@@ -104,6 +104,15 @@ void Array::del(int index) {
         for(int i = index; i < lastIndex; ++i)
             arr[i] = arr[i+1];
         --lastIndex;
+        if(lastIndex+1 == capacity/2) {
+            int* tmp = new int[capacity/2];
+            if(tmp) {
+                for(int i = 0; i <= lastIndex; ++i)
+                    tmp[i] = arr[i];
+                delete []arr;
+                arr = tmp;
+            }
+        }
     }
 }
 
