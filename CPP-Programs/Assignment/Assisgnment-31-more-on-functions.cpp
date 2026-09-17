@@ -160,8 +160,49 @@ float volume(int r) {
     return (4/3.0f) * 3.14 * r * r * r;
 }
 
+void printSubstring(char* str, int startIndex, int endIndex = -1) {
+    if(endIndex == -1) {
+        endIndex = strlen(str);
+        for(int i = startIndex; i < endIndex; ++i)
+            cout << str[i];    
+    }
+    else {
+        for(int i = startIndex; i < endIndex; ++i)
+            cout << str[i];
+    }
+}
 
+void swapArray(int* arr1, int size1, int* arr2, int size2) {
+    int len = size1 > size2 ? size1 : size2;
+    int tmp;
+    for(int i = 0; i < len; ++i) {
+        if(i < size1) {
+            if(i < size2) {
+                tmp = arr1[i];
+                arr1[i] = arr2[i];
+                arr2[i] = tmp;
+            }
+            else
+                arr1[i] = 0;
+        }
+        else 
+            arr2[i] = 0;
+    }
+}
 
+void margeArray(int arr1[], int arr2[], int size, int arr3[]) {
+    int i, j, k;
+    for(i = 0, j = 0; i < size && j < size; ++k) {
+        if(arr1[i] < arr2[j]) 
+            arr3[k] = arr1[i++];
+        else
+            arr3[k] = arr2[j++];
+    }
+    while(i < size)
+        arr3[k++] = arr1[i++];
+    while(j < size)
+        arr3[k++] = arr2[j++];
+}
 int main() {
     // int arr[10] = {3, 7, 2, 0, 6, -3, 12, -1, 1, 5};
     int arr[10] = {3, 7, 2, 0, 1};
