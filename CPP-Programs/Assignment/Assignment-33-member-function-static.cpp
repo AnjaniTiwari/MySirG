@@ -157,6 +157,7 @@ class Matrix {
         void printMatrix();
         Matrix addMatrix(Matrix obj);
         Matrix subtractMatrix(Matrix obj);
+        Matrix maltiplyMatrix(Matrix obj);
 };
 
 void Matrix::setMatrix(int arr[][3]) {
@@ -187,6 +188,19 @@ Matrix Matrix::subtractMatrix(Matrix obj) {
     for(int i = 0; i < 3; ++i) {
         for(int j = 0; j < 3; ++j)
             tmp.m[i][j] = m[i][j] - obj.m[i][j];
+    }
+    return tmp;
+}
+
+Matrix Matrix::maltiplyMatrix(Matrix obj) {
+    Matrix tmp;
+    for(int i = 0; i < 3; ++i) {
+        for(int j = 0; j < 3; ++j) {
+            tmp.m[i][j] = 0;
+            for(int k = 0; k < 3; ++k) {
+                tmp.m[i][j] += (m[i][k] * obj.m[k][j]);
+            }
+        }
     }
     return tmp;
 }
