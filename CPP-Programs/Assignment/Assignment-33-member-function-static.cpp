@@ -158,6 +158,8 @@ class Matrix {
         Matrix addMatrix(Matrix obj);
         Matrix subtractMatrix(Matrix obj);
         Matrix maltiplyMatrix(Matrix obj);
+        Matrix transposeMatrix();
+        bool isSingularMatrix();
 };
 
 void Matrix::setMatrix(int arr[][3]) {
@@ -205,6 +207,24 @@ Matrix Matrix::maltiplyMatrix(Matrix obj) {
     return tmp;
 }
 
+Matrix Matrix::transposeMatrix() {
+    Matrix tmp;
+    for(int i = 0; i < 3; ++i) {
+        for(int j = 0; j < 3; ++j) {
+            tmp.m[j][i] = m[i][j];
+        }
+    }
+}
+
+bool Matrix::isSingularMatrix() {
+    int determinent;
+    determinent = m[0][0]*(m[1][1]*m[2][2] - m[1][2]*m[2][1])
+                  - m[0][1]*(m[1][0]*m[2][2] - m[1][2]*m[2][0])
+                  + m[0][2]*(m[1][0]*m[2][1]- m[1][1]*m[2][0]);
+    if(determinent == 0)
+        return 1;
+    return 0;
+}
 
 int main() {
     // Complex obj1, obj2, tmp;
