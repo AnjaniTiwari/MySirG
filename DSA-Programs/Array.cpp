@@ -6,6 +6,9 @@ class Array {
     int* arr;
     int capacity;
     int lastIndex;
+    protected:
+        void doubleArray();
+        void halfArray();
     public :
         Array();
         Array(Array& obj);
@@ -71,16 +74,8 @@ void Array::insert(int value, int index) {
 }
 
 void Array::append(int value) {
-    if(isFull()) {
-        int* tmp = new int[capacity*2];
-        if(tmp) {
-            for(int i = 0; i < capacity; ++i) 
-                tmp[i] = arr[i];
-            capacity*=2;
-            delete []arr;
-            arr = tmp;
-        }
-    }
+    if(isFull()) 
+        doubleArray();
     arr[++lastIndex] = value;
 }
 
@@ -104,15 +99,8 @@ void Array::del(int index) {
         for(int i = index; i < lastIndex; ++i)
             arr[i] = arr[i+1];
         --lastIndex;
-        if(lastIndex+1 == capacity/2) {
-            int* tmp = new int[capacity/2];
-            if(tmp) {
-                for(int i = 0; i <= lastIndex; ++i)
-                    tmp[i] = arr[i];
-                delete []arr;
-                arr = tmp;
-            }
-        }
+        if(capacity > 1 && lastIndex+1 == capacity/2) 
+            halfArray();
     }
 }
 
@@ -134,6 +122,26 @@ Array::~Array() {
     delete []arr;
 }
 
+void Array::doubleArray() {
+    int* tmp = new int[capacity*2];
+    if(tmp) {
+        for(int i = 0; i < capacity; ++i) 
+            tmp[i] = arr[i];
+        capacity*=2;
+        delete []arr;
+        arr = tmp;
+    }
+}
+
+void Array::halfArray() {
+    int* tmp = new int[capacity/2];
+    if(tmp) {
+        for(int i = 0; i <= lastIndex; ++i)
+            tmp[i] = arr[i];
+        delete []arr;
+        arr = tmp;
+    }
+}
 int main() {
     Array obj;
     // obj.input(10);
