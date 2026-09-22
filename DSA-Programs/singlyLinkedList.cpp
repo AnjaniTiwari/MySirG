@@ -19,7 +19,7 @@ class SLL {
         void deleteLast();
         void deleteNode(int item);
         void edit(int item);
-        Node& search(int item);
+        Node* search(int item);
         int count();
         ~SLL();
 };
@@ -111,8 +111,58 @@ void SLL::deleteLast() {
 void SLL::deleteNode(int item) {
     if(start) {
         Node* tmp = start;
+        Node* tmp2 = NULL;;
+        while(tmp->item != item && tmp->next != NULL) {
+            tmp2 = tmp;
+            tmp = tmp->next;
+        }
+        if(tmp->item == item) {
+            if(tmp2 == NULL)
+                start = tmp->next;
+            else 
+                tmp2->next = tmp->next;
+            delete tmp;
+        }
+    }
+}
+
+void SLL::edit(int item) {
+    Node* tmp = search(item);
+    if(tmp)
+        tmp->item = item;
+    else
+        cout << item << " is not in the list." << endl;
+}
+
+Node* SLL::search(int item) {
+    Node* tmp = start;
+    if(tmp) {
         while(tmp->item != item && tmp->next != NULL)
             tmp = tmp->next;
+        if(tmp->item == item)
+            return tmp;
         
+    }    
+    return NULL;
+}
+
+int SLL::count() {
+    Node* tmp = start;
+    int c = 0;
+    while(tmp) {
+        c++;
+        tmp = tmp->next;
     }
+    return c;
+}
+
+SLL::~SLL() {
+    Node* tmp = start;
+    Node* tmp2 = NULL;
+    while(tmp) {
+        tmp2 = tmp;
+        tmp = tmp->next;
+        delete tmp2;
+    }
+    start = NULL;
 }
