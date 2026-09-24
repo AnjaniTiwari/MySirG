@@ -30,18 +30,24 @@ SLL::SLL(int item) {
         start->item = item;
     }
 }
+
 SLL::SLL(SLL& obj) {
-    start = new Node;
-    if(start) {
-        start->item = obj.start->item;
-        start->next = obj.start->next;
+    Node* tmp = obj.start;
+    while(start) 
+        deleteFirst();
+    while(tmp) {
+        insertAtLast(tmp->item);
+        tmp = tmp->next;
     }
 }
 
 SLL& SLL::operator=(SLL& obj) {
     if(this != &obj) {
-        start->item = obj.start->item;
-        start->next = obj.start->next;
+        Node* tmp = obj.start;
+        while(tmp) {
+            insertAtLast(tmp->item);
+            tmp = tmp->next;
+        }
     }
     return *this;
 }
@@ -52,24 +58,29 @@ void SLL::insertAtStart(int item) {
         tmp->item = item;
         tmp->next = start;
     }
-    else 
+    else { 
         cout << "Allocation failed." << endl;
+        return;
+    }
     start = tmp;
 }
 
 void SLL::insertAtLast(int item) {
-    Node* tmp = start; 
-    while(tmp != NULL)
-        tmp = tmp->next;
-    tmp = new Node;
-    tmp->item = item;
-    tmp->next = NULL;
+    if(start) {
+        Node* tmp = start; 
+        while(tmp->next != NULL)
+            tmp = tmp->next;
+        tmp->next = new Node;
+        tmp->next->item = item;
+    }
+    else {
+        start = new Node;
+        start->item = item;
+    }
 }
 
 void SLL::insertAfter(int item, int item2) {
-    Node* tmp = start; 
-    while(tmp != NULL && tmp->item != item)
-        tmp = tmp->next;
+    Node* tmp = search(item);
     if(!tmp)
         cout << item << " not in list." << endl;
     else {
@@ -157,12 +168,6 @@ int SLL::count() {
 }
 
 SLL::~SLL() {
-    Node* tmp = start;
-    Node* tmp2 = NULL;
-    while(tmp) {
-        tmp2 = tmp;
-        tmp = tmp->next;
-        delete tmp2;
-    }
-    start = NULL;
+    while(start)
+        deleteFirst();
 }
