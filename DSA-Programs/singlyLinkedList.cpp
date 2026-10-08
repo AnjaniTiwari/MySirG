@@ -1,14 +1,15 @@
 #include <iostream>
 using namespace std;
 
-typedef struct{
+struct Node{
     int item;
     Node* next;
-}Node;
+};
 
 class SLL {
     Node* start;
     public:
+        SLL() {}
         SLL(int item);
         SLL(SLL& obj);
         SLL& operator=(SLL& obj);
@@ -18,9 +19,10 @@ class SLL {
         void deleteFirst();
         void deleteLast();
         void deleteNode(int item);
-        void edit(int item);
+        void edit(int oldItem, int newItem);
         Node* search(int item);
         int count();
+        void display();
         ~SLL();
 };
 
@@ -33,8 +35,6 @@ SLL::SLL(int item) {
 
 SLL::SLL(SLL& obj) {
     Node* tmp = obj.start;
-    while(start) 
-        deleteFirst();
     while(tmp) {
         insertAtLast(tmp->item);
         tmp = tmp->next;
@@ -43,6 +43,8 @@ SLL::SLL(SLL& obj) {
 
 SLL& SLL::operator=(SLL& obj) {
     if(this != &obj) {
+        while(start) 
+            deleteFirst();
         Node* tmp = obj.start;
         while(tmp) {
             insertAtLast(tmp->item);
@@ -137,12 +139,12 @@ void SLL::deleteNode(int item) {
     }
 }
 
-void SLL::edit(int item) {
-    Node* tmp = search(item);
+void SLL::edit(int oldItem, int newItem) {
+    Node* tmp = search(oldItem);
     if(tmp)
-        tmp->item = item;
+        tmp->item = newItem;
     else
-        cout << item << " is not in the list." << endl;
+        cout << oldItem << " is not in the list." << endl;
 }
 
 Node* SLL::search(int item) {
@@ -170,4 +172,28 @@ int SLL::count() {
 SLL::~SLL() {
     while(start)
         deleteFirst();
+}
+
+void SLL::display() {
+    Node* tmp = start;
+    while(tmp) {
+        cout << tmp->item << " ";
+        tmp = tmp->next;
+    }
+    cout << endl;
+
+}
+
+int main() {
+    system("clear");
+    
+    SLL obj;
+    for(int i = 0; i < 5; ++i)
+        obj.insertAtLast(10+i);
+    obj.display();
+    obj.insertAfter(12, 15);
+    obj.display();
+    obj.deleteLast();
+    obj.display();
+    
 }
