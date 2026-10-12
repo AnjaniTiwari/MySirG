@@ -44,9 +44,13 @@ DLL::DLL(int item) {
 DLL::DLL(DLL& obj) {
 	start = NULL;
 	Node* tmp = obj.start;
-	while(tmp) {
-		insertAtEnd(tmp->item);
-		tmp = tmp->next;
+	if(tmp) {
+		while(tmp->next != NULL)
+			tmp = tmp->next;
+		do {
+			insertAtStart(tmp->item);
+			tmp = tmp->previous;
+		}while(tmp);
 	}
 }
 
