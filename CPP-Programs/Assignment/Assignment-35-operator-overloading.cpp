@@ -64,8 +64,55 @@ bool Complex::operator==(Complex& obj) {
 
 //Q2
 class Time {
-    
+	int hours, minutes, seconds;
+	public:
+		Time(int h = 0, int m = 0, int s = 0);
+		bool operator<(Time& obj);
+		void operator++();
+		void operator++(int);
+		void display();
+		Time operator+(Time& obj);
+
 };
+
+Time::Time(int h, int m, int s) {
+	hours = h;
+	minutes = m;
+	seconds = s;
+}
+
+bool Time::operator<(Time& obj) {
+	if(hours*60*60 + minutes*50 + seconds < obj.hours*60*60 + obj.minutes*60 + obj.seconds)
+		return 1;
+	else
+		return 0;
+}
+
+void Time::operator++() {
+	seconds++;
+}
+
+void Time::operator++(int) {
+	++seconds;
+}
+
+void Time::display() {
+    std::cout << hours << "-" << minutes << "-" << seconds << std::endl;
+}
+
+Time Time::operator+(Time& obj) {
+	Time tmp;
+	tmp.seconds = seconds + obj.seconds;
+	tmp.minutes = minutes + obj.minutes;
+	tmp.hours = hours + obj.hours;
+
+	tmp.minutes += (tmp.seconds/60);
+	tmp.seconds%=60;
+	tmp.hours += (tmp.minutes/60);
+	tmp.minutes%=60;
+	return tmp;
+}
+
 
 
 int main() {
