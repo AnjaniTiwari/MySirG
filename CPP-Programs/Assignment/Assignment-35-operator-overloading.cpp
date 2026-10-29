@@ -68,8 +68,8 @@ class Time {
 	public:
 		Time(int h = 0, int m = 0, int s = 0);
 		bool operator<(Time& obj);
-		void operator++();
-		void operator++(int);
+		Time operator++();
+		Time operator++(int);
 		void display();
 		Time operator+(Time& obj);
 
@@ -88,16 +88,27 @@ bool Time::operator<(Time& obj) {
 		return 0;
 }
 
-void Time::operator++() {
-	seconds++;
+Time Time::operator++() {  //pre-increment
+	++seconds;
+	minutes += (seconds/60);
+	seconds%=60;
+	hours += (minutes/60);
+	minutes%=60;
+	return *this;
 }
 
-void Time::operator++(int) {
-	++seconds;
+Time Time::operator++(int) { //post-increment
+	Time tmp = *this;
+	seconds++;
+	minutes += (seconds/60);
+	seconds%=60;
+	hours += (minutes/60);
+	minutes%=60;
+	return tmp;
 }
 
 void Time::display() {
-    std::cout << hours << "-" << minutes << "-" << seconds << std::endl;
+	std::cout << hours << "-" << minutes << "-" << seconds << std::endl;
 }
 
 Time Time::operator+(Time& obj) {
