@@ -1,6 +1,7 @@
 #include <iostream>
 using namespace std;
 
+//Q1
 class Complex {
     int n1, n2;
     public:
@@ -9,6 +10,7 @@ class Complex {
 		Complex operator-(Complex& obj);
 		Complex operator*(Complex& obj);
 		Complex operator/(Complex& obj);
+		bool operator==(Complex& obj);
 		void display();
 };
 
@@ -53,20 +55,34 @@ void Complex::display() {
 	std::cout << n1 << ", " << n2 << std::endl;
 }
 
+bool Complex::operator==(Complex& obj) {
+	if(n1 == obj.n1 && n2 == obj.n2)
+		return 1;
+	else
+    	return 0;
+}
+
+//Q2
+class Time {
+    
+};
+
+
 int main() {
 	Complex obj1(1, 2), obj2(3, 4), obj3;
 
 	obj3 = obj1+obj2;
 	obj3.display();
 
-    obj3 = obj1-obj2;
-    obj3.display();
+	obj3 = obj1-obj2;
+	obj3.display();
 
-    obj3 = obj1*obj2;
-    obj3.display();
+	obj3 = obj1*obj2;
+	obj3.display();
 
-    obj3 = obj1/obj2;
-    obj3.display();
-    
-    return 0;
+	obj3 = obj1/obj2;
+	obj3.display();
+
+	getchar();
+	return 0;
 }
