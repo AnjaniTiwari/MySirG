@@ -124,6 +124,70 @@ Time Time::operator+(Time& obj) {
 	return tmp;
 }
 
+//Q3
+class Matrix {
+	int m[3][3];
+	public:
+		Matrix();
+		void setMatrix();
+		void showMatrix();
+		Matrix operator+(Matrix& obj);
+		Matrix operator-(Matrix& obj);
+		Matrix operator*(Matrix& obj);
+};
+
+Matrix::Matrix() {
+	for(int i = 0; i < 3; ++i)
+		for(int j = 0; j < 3; ++j)
+			m[i][j] = 0;
+}
+
+void Matrix::setMatrix() {
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 3; ++j) {
+			std::cout << "Enter " << "matrix[" << i << "]" <<"[" << j <<"] = ";
+			std::cin >> m[i][j];
+		}
+	}
+	std::cout << std::endl;
+}
+
+void Matrix::showMatrix() {
+	for(int i = 0; i < 3; ++i) {
+		for(int j = 0; j < 3; ++j)
+			std::cout << m[i][j] << " ";
+		std::cout << endl;
+	}
+}
+
+Matrix Matrix::operator+(Matrix& obj) {
+	Matrix tmp;
+	for(int i = 0; i < 3; ++i)
+		for(int j = 0; j < 3; ++j)
+			tmp.m[i][j] = m[i][j] + obj.m[i][j];
+	return tmp;
+}
+
+Matrix Matrix::operator-(Matrix& obj) {
+	Matrix tmp;
+	for(int i = 0; i < 3; ++i)
+		for(int j = 0; j < 3; ++j)
+			tmp.m[i][j] = m[i][j] - obj.m[i][j];
+	return tmp;
+}
+
+Matrix Matrix::operator*(Matrix& obj) {
+	Matrix tmp;
+
+	for(int i = 0; i < 3; ++i) {
+		for(int k = 0; k < 3; ++k) {
+			for(int j = 0; j < 3; ++j) {
+				tmp.m[i][k] += m[i][j] * obj.m[j][k];
+			}
+		}
+	}
+	return tmp;
+}
 
 
 int main() {
