@@ -189,22 +189,72 @@ Matrix Matrix::operator*(Matrix& obj) {
 	return tmp;
 }
 
+//Q4
+class Number {
+	int x, y, z;
+	public:
+		Number(int a, int b, int c);
+		void operator-();
+		void display();
+};
+
+Number::Number(int a = 0, int b = 0, int c = 0) {
+	x = a;
+	y = b;
+	z = c;
+}
+
+void Number::operator-() {
+	x = -x;
+	y = -y;
+	z = -z;
+}
+
+void Number::display() {
+    std::cout << "x = " << x << " y = " << y << " z = " << z << std::endl;
+}
+
+//Q5
+class Array{
+	int* arr;
+	int size;
+	public:
+		Array(int size = 0);
+		~Array();
+		int& operator[](int i);
+};
+
+Array::Array(int size) {
+	if(!size) {
+		arr = NULL;
+		this->size = size;
+	}
+	else {
+		arr = new int[size];
+		if(!arr)
+			std::cout << "Memory allocation failed." << std::endl;
+		else
+			this->size = size;
+	}
+}
+
+Array::~Array() {
+	if(arr)
+		delete []arr;
+}
+
+int& Array::operator[](int i) {
+	if(i >= size)
+		std::cout << "Index out of bound." << std::endl;
+	else {
+		return arr[i];
+    }
+}
 
 int main() {
-	Complex obj1(1, 2), obj2(3, 4), obj3;
-
-	obj3 = obj1+obj2;
-	obj3.display();
-
-	obj3 = obj1-obj2;
-	obj3.display();
-
-	obj3 = obj1*obj2;
-	obj3.display();
-
-	obj3 = obj1/obj2;
-	obj3.display();
-
+	Array obj(5);
+	obj[2] = 10;
+	std::cout << obj[2] << std::endl;
 	getchar();
 	return 0;
 }
