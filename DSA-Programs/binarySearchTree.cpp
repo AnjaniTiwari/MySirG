@@ -13,10 +13,13 @@ class BinarySearchTree {
 	void preOrder(Node* tmp);
 	void inOrder(Node* tmp);
 	void postOrder(Node* tmp);
+	Node* deleteBstNode(Node*& root, int data);
+	void goMaxNode(Node** tmp);
 	public:
 		BinarySearchTree();
 		void insert(int data);
 		void traversal();
+		void deleteNode(int data);
 };
 
 BinarySearchTree::BinarySearchTree() {
@@ -104,18 +107,104 @@ void BinarySearchTree::traversal() {
 	postOrder(root);
 }
 
+void BinarySearchTree::goMaxNode(Node** tmp) {
+	while((*tmp)->right != NULL && (*tmp)->right->right != NULL)
+    	(*tmp) = (*tmp)->right;
+}
+
+Node* BinarySearchTree::deleteBstNode(Node*& root, int data) {
+	if(!root) {
+		std::cout << data << " is not the tree." << std::endl;
+    	return root;
+	}
+	if(data < root->data) {
+		deleteBstNode(root->left, data);
+	}
+	else if(data > root->data) {
+        deleteBstNode(root->right, data);
+	}
+	else {
+		if(root->left == NULL && root->right == NULL) {
+			delete root;
+			root = NULL;
+		}
+		else if(root->left) {
+			Node* tmp = root->left;
+			if(!tmp->left && !tmp->right) {
+				tmp->right = root->right;
+				delete root;
+				root = tmp;
+			}
+			else if(!tmp->right) {
+				tmp->right = root->right;
+				delete root;
+                root = tmp;
+			}
+			else {
+				goMaxNode(&tmp);
+				if(!tmp->right->left) {
+					tmp->right->left = root->left;
+					tmp->right->right = root->right;
+					delete root;
+					root = tmp->right;
+					tmp->right = NULL;
+				}
+				else {
+					Node* tmp2 = tmp->right->left;
+					tmp->right->left = root->left;
+					tmp->right->right = root->right;
+                    delete root;
+                    root = tmp->right;
+					tmp->right = tmp2;
+                }
+            }
+		}
+		else {
+			Node* tmp = root->right;
+			delete root;
+			root = tmp;
+		}
+    }
+}
+
+void BinarySearchTree::deleteNode(int data) {
+	deleteBstNode(root, data);
+}
+
 
 
 int main() {
 	BinarySearchTree obj;
-	obj.insert(4);
-	obj.insert(2);
+	obj.insert(10);
 	obj.insert(6);
-	obj.insert(1);
-	obj.insert(7);
+	obj.insert(4);
 	obj.insert(3);
 	obj.insert(5);
-    obj.traversal();
+	obj.insert(8);
+	obj.insert(7);
+	obj.insert(9);
+	obj.insert(14);
+	obj.insert(12);
+	obj.insert(11);
+	obj.insert(13);
+	obj.insert(16);
+	obj.insert(15);
+	obj.insert(17);
+
+	obj.deleteNode(10);
+	obj.deleteNode(9);
+	obj.deleteNode(8);
+	obj.deleteNode(7);
+	obj.deleteNode(6);
+	obj.deleteNode(5);
+	obj.deleteNode(4);
+	obj.deleteNode(3);
+
+	obj.deleteNode(16);
+//	obj.deleteNode(4);
+//	obj.deleteNode(3);
+
+//	obj.traversal();
 	getchar();
 	return 0;
 }
