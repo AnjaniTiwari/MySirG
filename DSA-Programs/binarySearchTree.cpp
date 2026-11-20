@@ -15,15 +15,54 @@ class BinarySearchTree {
 	void postOrder(Node* tmp);
 	Node* deleteBstNode(Node*& root, int data);
 	void goMaxNode(Node** tmp);
+	void recCopy(Node** root, Node** cpyRoot);
 	public:
 		BinarySearchTree();
+		BinarySearchTree(BinarySearchTree& obj);
+		BinarySearchTree& operator=(BinarySearchTree& obj);
+		~BinarySearchTree();
 		void insert(int data);
 		void traversal();
 		void deleteNode(int data);
+		Node* search(int data);
 };
 
 BinarySearchTree::BinarySearchTree() {
 	root = NULL;
+}
+
+void BinarySearchTree::recCopy(Node** root, Node** cpyRoot) {
+	if(*cpyRoot) {
+		if(!*root) {
+			*root = createNode((*cpyRoot)->data);
+			if(*root) {
+				recCopy(&(*root)->left, &(*cpyRoot)->left);
+				recCopy(&(*root)->right, &(*cpyRoot)->right);
+            }
+		}
+	}
+}
+
+BinarySearchTree::BinarySearchTree(BinarySearchTree& obj) {
+    root = NULL;
+	if(obj.root)
+		recCopy(&root, &obj.root);
+}
+
+BinarySearchTree& BinarySearchTree::operator=(BinarySearchTree& obj) {
+	if(obj.root) {
+		if(this != &obj) {
+        	while(root)
+				deleteNode(root->data);
+			recCopy(&root, &obj.root);
+		}
+	}
+	return *this;
+}
+
+BinarySearchTree::~BinarySearchTree() {
+	while(root)
+		deleteNode(root->data);
 }
 
 Node* BinarySearchTree::createNode(int data) {
@@ -62,7 +101,7 @@ void BinarySearchTree::insert(int data) {
 				else
 					tmp = tmp->left;
 			}
-			else {
+			else if(data > tmp->data) {
 				if(!tmp->right) {
 					tmp->right = createNode(data);
 					break;
@@ -70,6 +109,8 @@ void BinarySearchTree::insert(int data) {
 				else
 					tmp = tmp->right;
 			}
+			else
+            	break;
 		}
     }
 }
@@ -164,13 +205,28 @@ Node* BinarySearchTree::deleteBstNode(Node*& root, int data) {
 			delete root;
 			root = tmp;
 		}
-    }
+	}
+	return root;
 }
 
 void BinarySearchTree::deleteNode(int data) {
 	deleteBstNode(root, data);
 }
 
+Node* BinarySearchTree::search(int data) {
+	Node* tmp = root;
+	while(tmp) {
+		if(data == tmp->data)
+			break;
+		else if(data < tmp->data)
+			tmp = tmp->left;
+		else
+			tmp = tmp->right;
+	}
+	if(!tmp)
+		std::cout << data << " not in the tree." << std::endl;
+	return tmp;
+}
 
 
 int main() {
@@ -190,21 +246,24 @@ int main() {
 	obj.insert(16);
 	obj.insert(15);
 	obj.insert(17);
-
-	obj.deleteNode(10);
-	obj.deleteNode(9);
-	obj.deleteNode(8);
-	obj.deleteNode(7);
-	obj.deleteNode(6);
-	obj.deleteNode(5);
-	obj.deleteNode(4);
-	obj.deleteNode(3);
-
-	obj.deleteNode(16);
+	obj.insert(11);
+	obj.search(17);
+//	obj.deleteNode(10);
+//	obj.deleteNode(9);
+//	obj.deleteNode(8);
+//	obj.deleteNode(7);
+//	obj.deleteNode(6);
+//	obj.deleteNode(5);
+//	obj.deleteNode(4);
+//	obj.deleteNode(3);
+//	obj.deleteNode(16);
 //	obj.deleteNode(4);
 //	obj.deleteNode(3);
 
 //	obj.traversal();
+	BinarySearchTree obj2;
+	obj2 = obj;
+    obj = obj2;
 	getchar();
 	return 0;
 }
